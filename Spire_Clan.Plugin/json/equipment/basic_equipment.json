@@ -50,7 +50,7 @@
   "upgrades": [
     {
       "id": "BasicEquipmentUpgrade",
-      "bonus_damage": 25,
+      "bonus_damage": 15,
       "bonus_hp": 15,
       "bonus_size": -1,
       "icon": "@BasicEquipmentIcon"

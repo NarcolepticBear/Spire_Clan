@@ -10,7 +10,7 @@
         "chinese": "金属化"
       },
       "descriptions": {
-        "english": "Apply [valor] 5 to a friendly or enemy unit.",
+        "english": "Apply [valor] [effect0.status0.power] to a unit.",
         "chinese": "对一个友方或敌方单位施加 [valor] 5。"
       },
       "rarity": "common",

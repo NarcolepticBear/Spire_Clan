@@ -13,7 +13,7 @@
       "class": "@ClassBasic",
       "targets_room": true,
       "targetless": false,
-      "pools": [ "MegaPool" ],
+      "pools": [  ],
       "effects": [ "@SpawnTwigSlime" ]
     }
   ],

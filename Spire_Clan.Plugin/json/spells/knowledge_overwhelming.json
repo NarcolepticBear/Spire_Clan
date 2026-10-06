@@ -10,7 +10,7 @@
         "chinese": "压倒性知识"
       },
       "descriptions": {
-        "english": "Apply [dazed] 1 to an enemy unit. If the target is friendly, also apply [armor] 25.",
+        "english": "Apply [dazed] [effect0.status.power] to an enemy unit. If the target is friendly, also apply [armor] [effect1.status.power].",
         "chinese": "对一个敌方单位施加 [dazed] 1。如果目标是友方单位，则额外施加 [armor] 25。"
       },
       "rarity": "common",
@@ -38,7 +38,7 @@
       "id": "KnowledgeOverwhelmingDaze",
       "name": "CardEffectAddStatusEffect",
       "target_mode": "drop_target_character",
-      "target_team": "heroes",
+      "target_team": "both",
       "param_status_effects": [
         {
           "status": "dazed",
@@ -50,7 +50,7 @@
       "id": "KnowledgeOverwhelmingArmor",
       "name": "CardEffectAddStatusEffect",
       "target_mode": "drop_target_character",
-      "target_team": "heroes",
+      "target_team": "monsters",
       "param_status_effects": [
         {
           "status": "armor",

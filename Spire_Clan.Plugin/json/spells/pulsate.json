@@ -19,7 +19,12 @@
       "class": "@ClassBasic",
       "card_art": "@BasicCommonSpellCardArt",
       "effects": [
+        "@PulsateDamage",
+        "@PulsateDamage",
         "@PulsateDamage"
+      ],
+      "triggers": [
+        "@PulsateSlay"
       ],
       "pools": [
         "MegaPool"
@@ -39,6 +44,33 @@
       "target_mode": "room",
       "target_team": "heroes",
       "param_int": 10
+    },
+    {
+      "id": "PulsateSlayHealth",
+      "name": "CardEffectAddTempCardUpgradeToUnits",
+      "target_mode": "room",
+      "target_team": "monsters",
+      "param_int_3": 0,
+      "param_upgrade": "@PulsateSlayHealthUpgrade"
+    }
+  ],
+  "card_triggers": [
+    {
+      "id": "PulsateSlay",
+      "trigger": "on_kill",
+      "descriptions": {
+        "english": "Slay: Friendly units on this floor get +[effect0.upgrade.bonushp][health].",
+        "chinese": "斩杀：此层的友方单位获得 +[effect0.upgrade.bonushp][health]。"
+      },
+      "effects": [
+        "@PulsateSlayHealth"
+      ]
+    }
+  ],
+  "upgrades": [
+    {
+      "id": "PulsateSlayHealthUpgrade",
+      "bonus_hp": 5
     }
   ]
 }

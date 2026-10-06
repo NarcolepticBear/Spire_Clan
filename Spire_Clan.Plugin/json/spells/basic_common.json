@@ -22,7 +22,7 @@
         "@BasicCommonSpellApplyDazed",
         "@BasicCommonSpellApplyMuted"
       ],
-      "pools": ["MegaPool"],
+      "pools": [],
       "traits": ["@Consume"],
       "lore_tooltips": [
         {

@@ -10,8 +10,8 @@
         "chinese": "成长之书"
       },
       "descriptions": {
-        "english": "Apply [resolve] and grant +10 Attack and +10 Health to a friendly unit.",
-        "chinese": "对一个友方单位施加[resolve]，并获得 +10 攻击和 +10 生命。"
+        "english": "Give a friendly unit a resolve trigger that grants +10 Attack and +10 Health.",
+        "chinese": "使一个友方单位获得战斗结束时触发的能力：+10 攻击和 +10 生命。"
       },
       "rarity": "rare",
       "targets_room": true,
@@ -19,7 +19,7 @@
       "class": "@ClassBasic",
       "card_art": "@BasicCommonSpellCardArt",
       "effects": [
-        "@ScalingTomeResolve"
+        "@ScalingTomeApplyUpgrade"
       ],
       "pools": [
         "MegaPool"
@@ -35,18 +35,48 @@
       ]
     }
   ],
+  "upgrades": [
+    {
+      "id": "ScalingTomeUpgrade",
+      "trigger_upgrades": [
+        "@ScalingTomePostCombat"
+      ]
+    },
+    {
+      "id": "ScalingTomePostCombatStats",
+      "bonus_damage": 10,
+      "bonus_hp": 10
+    }
+  ],
+  "character_triggers": [
+    {
+      "id": "ScalingTomePostCombat",
+      "trigger": "post_combat",
+      "descriptions": {
+        "english": "Gain +[effect0.upgrade.bonusdamage][attack] and +[effect0.upgrade.bonushp][health].",
+        "chinese": "获得 +[effect0.upgrade.bonusdamage][attack] 和 +[effect0.upgrade.bonushp][health]。"
+      },
+      "effects": [
+        "@ScalingTomePostCombatGainStats"
+      ]
+    }
+  ],
   "effects": [
     {
-      "id": "ScalingTomeResolve",
-      "name": "CardEffectAddStatusEffect",
+      "id": "ScalingTomeApplyUpgrade",
+      "name": "CardEffectAddCardUpgradeToUnits",
       "target_mode": "drop_target_character",
-      "target_team": "heroes",
-      "param_status_effects": [
-        {
-          "status": "resolve",
-          "count": 1
-        }
-      ]
+      "target_team": "monsters",
+      "param_upgrade": "@ScalingTomeUpgrade",
+      "param_int_3": 0
+    },
+    {
+      "id": "ScalingTomePostCombatGainStats",
+      "name": "CardEffectAddCardUpgradeToUnits",
+      "target_mode": "self",
+      "target_team": "monsters",
+      "param_upgrade": "@ScalingTomePostCombatStats",
+      "param_int_3": 0
     }
   ]
 }

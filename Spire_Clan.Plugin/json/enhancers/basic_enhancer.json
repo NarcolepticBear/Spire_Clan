@@ -45,8 +45,8 @@
         "chinese": "获得 +[bonusdamage][attack]，+[bonushp][health]，[bonussize][capacity]。"
       },
       "icon": "@BasicstoneIcon",
-      "bonus_damage": 20,
-      "bonus_hp": 20,
+      "bonus_damage": 5,
+      "bonus_hp": 10,
       "bonus_size": -1
     }
   ],
