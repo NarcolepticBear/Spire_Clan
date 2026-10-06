@@ -1,0 +1,41 @@
+{
+  "$schema": "https://github.com/Monster-Train-2-Modding-Group/Trainworks-Reloaded/releases/latest/download/schema.json",
+  "cards": [
+    {
+      "id": "TwigSlimeUnit",
+      "names": {
+        "english": "Twig Slime"
+      },
+      "card_art": "@BasicBannerUnitCardArt",
+      "cost": 0,
+      "card_type": "monster",
+      "rarity": "common",
+      "class": "@ClassBasic",
+      "targets_room": true,
+      "targetless": false,
+      "pools": [ "MegaPool" ],
+      "effects": [ "@SpawnTwigSlime" ]
+    }
+  ],
+  "characters": [
+    {
+      "id": "TwigSlimeCharacter",
+      "names": {
+        "english": "Twig Slime"
+      },
+      "character_art": "@BasicBannerUnitCharacterArt",
+      "size": 1,
+      "health": 1,
+      "attack_damage": 1,
+      "subtypes": [ "@BasicSubtype" ]
+    }
+  ],
+  "effects": [
+    {
+      "id": "SpawnTwigSlime",
+      "name": "CardEffectSpawnMonster",
+      "target_mode": "room",
+      "param_character": "@TwigSlimeCharacter"
+    }
+  ]
+}

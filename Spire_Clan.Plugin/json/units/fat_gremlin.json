@@ -1,0 +1,72 @@
+{
+  "$schema": "https://github.com/Monster-Train-2-Modding-Group/Trainworks-Reloaded/releases/latest/download/schema.json",
+  "cards": [
+    {
+      "id": "FatGremlinUnit",
+      "names": {
+        "english": "Fat Gremlin",
+        "chinese": "肥地精"
+      },
+      "card_art": "@BasicBannerUnitCardArt",
+      "cost": 0,
+      "card_type": "monster",
+      "rarity": "common",
+      "class": "@ClassBasic",
+      "targets_room": true,
+      "targetless": false,
+      "pools": [  ],
+      "effects": [ "@SpawnFatGremlin" ],
+      "lore_tooltips": [
+        {
+          "english": "A chubby gremlin with surprising durability.",
+          "chinese": "体型笨重但耐打的地精。"
+        }
+      ]
+    }
+  ],
+  "characters": [
+    {
+      "id": "FatGremlinCharacter",
+      "names": {
+        "english": "Fat Gremlin",
+        "chinese": "肥地精"
+      },
+      "character_art": "@BasicBannerUnitCharacterArt",
+      "size": 1,
+      "health": 10,
+      "attack_damage": 15,
+      "subtypes": [ "@GremlinSubtype" ],
+      "triggers": [ "@FatGremlinStrike" ]
+    }
+  ],
+  "character_triggers": [
+    {
+      "id": "FatGremlinStrike",
+      "trigger": "on_attacking",
+      "descriptions": {
+        "english": "Apply 1 spell weakness to the attacked enemy."
+      },
+      "effects": [ "@FatGremlinApplySpellWeakness" ]
+    }
+  ],
+  "effects": [
+    {
+      "id": "SpawnFatGremlin",
+      "name": "CardEffectSpawnMonster",
+      "target_mode": "room",
+      "param_character": "@FatGremlinCharacter"
+    },
+    {
+      "id": "FatGremlinApplySpellWeakness",
+      "name": "CardEffectAddStatusEffect",
+      "target_mode": "last_attacked_character",
+      "target_team": "heroes",
+      "param_status_effects": [
+        {
+          "status": "spell weakness",
+          "count": 1
+        }
+      ]
+    }
+  ]
+}

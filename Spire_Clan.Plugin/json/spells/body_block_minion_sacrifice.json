@@ -1,0 +1,43 @@
+{
+  "$schema": "https://github.com/Monster-Train-2-Modding-Group/Trainworks-Reloaded/releases/latest/download/schema.json",
+  "cards": [
+    {
+      "id": "BodyBlockMinionSacrifice",
+      "cost": 1,
+      "card_type": "spell",
+      "names": {
+        "english": "Body Block / Minion Sacrifice",
+        "chinese": "身体阻挡 / 小怪牺牲"
+      },
+      "descriptions": {
+        "english": "Summon a Torch Head to the front of the floor.",
+        "chinese": "在前排召唤一个火炬头。"
+      },
+      "rarity": "common",
+      "targets_room": false,
+      "targetless": true,
+      "class": "@ClassBasic",
+      "card_art": "@BasicCommonSpellCardArt",
+      "effects": [
+        "@BodyBlockSummonTorchHead"
+      ],
+      "pools": [
+        "MegaPool"
+      ],
+      "lore_tooltips": [
+        {
+          "english": "The offer is small, but the result is unmistakable.",
+          "chinese": "代价不大，但结果无可置疑。"
+        }
+      ]
+    }
+  ],
+  "effects": [
+    {
+      "id": "BodyBlockSummonTorchHead",
+      "name": "CardEffectSpawnMonster",
+      "target_mode": "front_in_room",
+      "param_character": "@TorchHeadCharacter"
+    }
+  ]
+}

@@ -1,0 +1,55 @@
+{
+  "$schema": "https://github.com/Monster-Train-2-Modding-Group/Trainworks-Reloaded/releases/latest/download/schema.json",
+  "cards": [
+    {
+      "id": "EntomancerUnit",
+      "names": {
+        "english": "Entomancer",
+        "chinese": "昆虫术士"
+      },
+      "card_art": "@BasicBannerUnitCardArt",
+      "cost": 1,
+      "card_type": "monster",
+      "rarity": "uncommon",
+      "class": "@ClassBasic",
+      "targets_room": true,
+      "targetless": false,
+      "pools": [ "UnitsAllBanner", "@UnitsBasicClanBanner" ],
+      "effects": [ "@SpawnEntomancer" ],
+      "lore_tooltips": [
+        {
+          "english": "A strange insect-borne mystic with absurd power.",
+          "chinese": "掌握昆虫之力的奇异术士，拥有惊人力量。"
+        }
+      ]
+    }
+  ],
+  "characters": [
+    {
+      "id": "EntomancerCharacter",
+      "names": {
+        "english": "Entomancer",
+        "chinese": "昆虫术士"
+      },
+      "character_art": "@BasicBannerUnitCharacterArt",
+      "size": 2,
+      "health": 15,
+      "attack_damage": 3,
+      "subtypes": [ "SubtypesData_BannerUnit", "@BasicSubtype" ],
+      "starting_status_effects": [
+        {
+          "status": "multistrike",
+          "count": 2
+        }
+      ]
+    }
+  ],
+  "effects": [
+    {
+      "id": "SpawnEntomancer",
+      "name": "CardEffectSpawnMonster",
+      "target_mode": "room",
+      "param_character": "@EntomancerCharacter"
+    }
+  ]
+}

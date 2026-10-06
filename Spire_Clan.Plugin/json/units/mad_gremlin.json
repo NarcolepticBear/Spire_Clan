@@ -1,0 +1,67 @@
+{
+  "$schema": "https://github.com/Monster-Train-2-Modding-Group/Trainworks-Reloaded/releases/latest/download/schema.json",
+  "cards": [
+    {
+      "id": "MadGremlinUnit",
+      "names": {
+        "english": "Mad Gremlin",
+        "chinese": "狂暴地精"
+      },
+      "card_art": "@BasicBannerUnitCardArt",
+      "cost": 0,
+      "card_type": "monster",
+      "rarity": "common",
+      "class": "@ClassBasic",
+      "targets_room": true,
+      "targetless": false,
+      "pools": [  ],
+      "effects": [ "@SpawnMadGremlin" ],
+      "lore_tooltips": [
+        {
+          "english": "A frantic gremlin that attacks before thinking.",
+          "chinese": "先冲锋后思考的狂暴地精。"
+        }
+      ]
+    }
+  ],
+  "characters": [
+    {
+      "id": "MadGremlinCharacter",
+      "names": {
+        "english": "Mad Gremlin",
+        "chinese": "狂暴地精"
+      },
+      "character_art": "@BasicBannerUnitCharacterArt",
+      "size": 1,
+      "health": 25,
+      "attack_damage": 10,
+      "subtypes": [ "@GremlinSubtype" ],
+      "triggers": [ "@MadGremlinRevenge" ]
+    }
+  ],
+  "character_triggers": [
+    {
+      "id": "MadGremlinRevenge",
+      "trigger": "on_hit",
+      "descriptions": {
+        "english": "Friendly units gain +3 attack."
+      },
+      "effects": [ "@MadGremlinBuffFriendlyUnits" ]
+    }
+  ],
+  "effects": [
+    {
+      "id": "SpawnMadGremlin",
+      "name": "CardEffectSpawnMonster",
+      "target_mode": "room",
+      "param_character": "@MadGremlinCharacter"
+    },
+    {
+      "id": "MadGremlinBuffFriendlyUnits",
+      "name": "CardEffectBuffDamage",
+      "target_mode": "room",
+      "target_team": "monsters",
+      "param_int": 3
+    }
+  ]
+}

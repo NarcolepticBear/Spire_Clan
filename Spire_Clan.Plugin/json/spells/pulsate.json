@@ -1,0 +1,44 @@
+{
+  "$schema": "https://github.com/Monster-Train-2-Modding-Group/Trainworks-Reloaded/releases/latest/download/schema.json",
+  "cards": [
+    {
+      "id": "Pulsate",
+      "cost": 2,
+      "card_type": "spell",
+      "names": {
+        "english": "Pulsate",
+        "chinese": "脉动"
+      },
+      "descriptions": {
+        "english": "Deal 10 damage to enemies 3 times. Slay: gain +5 Health to friendly units.",
+        "chinese": "对敌人造成 10 点伤害 3 次。斩杀：为友方单位获得 +5 生命。"
+      },
+      "rarity": "rare",
+      "targets_room": true,
+      "targetless": false,
+      "class": "@ClassBasic",
+      "card_art": "@BasicCommonSpellCardArt",
+      "effects": [
+        "@PulsateDamage"
+      ],
+      "pools": [
+        "MegaPool"
+      ],
+      "lore_tooltips": [
+        {
+          "english": "A relentless rhythm that shakes the floor.",
+          "chinese": "一种让地板都颤动的无情节奏。"
+        }
+      ]
+    }
+  ],
+  "effects": [
+    {
+      "id": "PulsateDamage",
+      "name": "CardEffectDamage",
+      "target_mode": "room",
+      "target_team": "heroes",
+      "param_int": 10
+    }
+  ]
+}

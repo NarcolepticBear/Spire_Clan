@@ -1,0 +1,47 @@
+{
+  "$schema": "https://github.com/Monster-Train-2-Modding-Group/Trainworks-Reloaded/releases/latest/download/schema.json",
+  "cards": [
+    {
+      "id": "BookOfStabbing",
+      "cost": 1,
+      "card_type": "spell",
+      "names": {
+        "english": "Book of Stabbing",
+        "chinese": "刺杀之书"
+      },
+      "descriptions": {
+        "english": "Deal 10 damage to an enemy, two times. All Books of Stabbing deal one additional hit this combat.",
+        "chinese": "对一个敌方单位造成 10 点伤害两次。本场战斗中所有“刺杀之书”都额外造成一次命中。"
+      },
+      "rarity": "common",
+      "targets_room": true,
+      "targetless": false,
+      "class": "@ClassBasic",
+      "card_art": "@BasicCommonSpellCardArt",
+      "effects": [
+        "@BookOfStabbingDamage"
+      ],
+      "pools": [
+        "MegaPool"
+      ],
+      "traits": [
+        "@Consume"
+      ],
+      "lore_tooltips": [
+        {
+          "english": "A brutal lesson written in needles.",
+          "chinese": "用针写成的残酷教训。"
+        }
+      ]
+    }
+  ],
+  "effects": [
+    {
+      "id": "BookOfStabbingDamage",
+      "name": "CardEffectDamage",
+      "target_mode": "drop_target_character",
+      "target_team": "heroes",
+      "param_int": 10
+    }
+  ]
+}

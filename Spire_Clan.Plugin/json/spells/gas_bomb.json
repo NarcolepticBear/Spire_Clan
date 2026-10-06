@@ -1,0 +1,55 @@
+{
+  "$schema": "https://github.com/Monster-Train-2-Modding-Group/Trainworks-Reloaded/releases/latest/download/schema.json",
+  "cards": [
+    {
+      "id": "GasBomb",
+      "cost": 1,
+      "card_type": "spell",
+      "names": {
+        "english": "Gas Bomb",
+        "chinese": "毒气炸弹"
+      },
+      "descriptions": {
+        "english": "Deal [effect0.power] damage to an enemy unit.",
+        "chinese": "对一个敌方单位造成 [effect0.power] 点伤害。"
+      },
+      "rarity": "common",
+      "targets_room": true,
+      "targetless": false,
+      "class": "@ClassBasic",
+      "card_art": "@BasicCommonSpellCardArt",
+      "effects": [
+        "@GasBombDamage"
+      ],
+      "pools": [
+        "MegaPool"
+      ],
+      "traits": [
+        "@Consume",
+        "@GasBombExplosive"
+      ],
+      "lore_tooltips": [
+        {
+          "english": "A volatile shell that leaves little room to breathe.",
+          "chinese": "一种挥发性外壳，让人几乎无法呼吸。"
+        }
+      ]
+    }
+  ],
+  "effects": [
+    {
+      "id": "GasBombDamage",
+      "name": "CardEffectDamage",
+      "target_mode": "drop_target_character",
+      "target_team": "heroes",
+      "param_int": 30
+    }
+  ],
+  "traits": [
+    {
+      "id": "GasBombExplosive",
+      "name": "CardTraitDamageOverflow",
+      "param_int": 2
+    }
+  ]
+}

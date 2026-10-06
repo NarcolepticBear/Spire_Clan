@@ -1,0 +1,93 @@
+{
+  "$schema": "https://github.com/Monster-Train-2-Modding-Group/Trainworks-Reloaded/releases/latest/download/schema.json",
+  "cards": [
+    {
+      "id": "AwakenedOneUnit",
+      "names": {
+        "english": "Awakened One",
+        "chinese": "觉醒者"
+      },
+      "card_art": "@BasicBannerUnitCardArt",
+      "cost": 1,
+      "card_type": "monster",
+      "rarity": "uncommon",
+      "class": "@ClassBasic",
+      "targets_room": true,
+      "targetless": false,
+      "pools": [ "UnitsAllBanner", "@UnitsBasicClanBanner" ],
+      "effects": [ "@SpawnAwakenedOne" ],
+      "lore_tooltips": [
+        {
+          "english": "A restless, ascended guardian from the Spire clan.",
+          "chinese": "来自尖塔氏族的觉醒守卫。"
+        }
+      ]
+    },
+    {
+      "id": "AwakenedOneFlight",
+      "names": {
+        "english": "Flight",
+        "chinese": "飞行"
+      },
+      "descriptions": {
+        "english": "Move to any space on any floor."
+      },
+      "is_an_ability": true,
+      "cooldown": 2,
+      "class": "@ClassBasic",
+      "can_ability_target_other_floors": true,
+      "initial_keyboard_target": "front_friendly",
+      "effects": [ "@AwakenedOneFlightEffect" ]
+    }
+  ],
+  "characters": [
+    {
+      "id": "AwakenedOneCharacter",
+      "names": {
+        "english": "Awakened One",
+        "chinese": "觉醒者"
+      },
+      "character_art": "@BasicBannerUnitCharacterArt",
+      "size": 2,
+      "health": 30,
+      "attack_damage": 15,
+      "subtypes": [ "SubtypesData_BannerUnit", "@BasicSubtype" ],
+      "ability": "@AwakenedOneFlight",
+      "triggers": [ "@AwakenedOneHarvest" ]
+    }
+  ],
+  "character_triggers": [
+    {
+      "id": "AwakenedOneHarvest",
+      "trigger": "on_any_hero_death_on_floor",
+      "descriptions": {
+        "english": "Gain +2 attack and +2 health."
+      },
+      "effects": [ "@AwakenedOneHarvestAttack", "@AwakenedOneHarvestHealth" ]
+    }
+  ],
+  "effects": [
+    {
+      "id": "SpawnAwakenedOne",
+      "name": "CardEffectSpawnMonster",
+      "target_mode": "room",
+      "param_character": "@AwakenedOneCharacter"
+    },
+    {
+      "id": "AwakenedOneHarvestAttack",
+      "name": "CardEffectBuffDamage",
+      "target_mode": "self",
+      "param_int": 2
+    },
+    {
+      "id": "AwakenedOneHarvestHealth",
+      "name": "CardEffectBuffMaxHealth",
+      "target_mode": "self",
+      "param_int": 2
+    },
+    {
+      "id": "AwakenedOneFlightEffect",
+      "name": "CardEffectUnitAbilityTeleport"
+    }
+  ]
+}

@@ -1,0 +1,47 @@
+{
+  "$schema": "https://github.com/Monster-Train-2-Modding-Group/Trainworks-Reloaded/releases/latest/download/schema.json",
+  "cards": [
+    {
+      "id": "GremlinAmbush",
+      "cost": 2,
+      "card_type": "spell",
+      "names": {
+        "english": "Gremlin Ambush",
+        "chinese": "地精伏击"
+      },
+      "descriptions": {
+        "english": "Add 2 random gremlins to your hand.",
+        "chinese": "将 2 只随机地精加入你的手牌。"
+      },
+      "rarity": "common",
+      "targets_room": false,
+      "targetless": true,
+      "class": "@ClassBasic",
+      "card_art": "@BasicCommonSpellCardArt",
+      "effects": [
+        "@GremlinAmbushDraw"
+      ],
+      "pools": [
+        "MegaPool"
+      ],
+      "traits": [
+        "@Consume"
+      ],
+      "lore_tooltips": [
+        {
+          "english": "The smallest ambush is still an ambush.",
+          "chinese": "最小的伏击，仍然是伏击。"
+        }
+      ]
+    }
+  ],
+  "effects": [
+    {
+      "id": "GremlinAmbushDraw",
+      "name": "CardEffectAddBattleCard",
+      "param_int": 3,
+      "param_int_2": 2,
+      "param_card_pool": "@GremlinUnitPool"
+    }
+  ]
+}

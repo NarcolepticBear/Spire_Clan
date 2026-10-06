@@ -1,0 +1,49 @@
+{
+  "$schema": "https://github.com/Monster-Train-2-Modding-Group/Trainworks-Reloaded/releases/latest/download/schema.json",
+  "cards": [
+    {
+      "id": "Metallicize",
+      "cost": 1,
+      "card_type": "spell",
+      "names": {
+        "english": "Metallicize",
+        "chinese": "金属化"
+      },
+      "descriptions": {
+        "english": "Apply [valor] 5 to a friendly or enemy unit.",
+        "chinese": "对一个友方或敌方单位施加 [valor] 5。"
+      },
+      "rarity": "common",
+      "targets_room": true,
+      "targetless": false,
+      "class": "@ClassBasic",
+      "card_art": "@BasicCommonSpellCardArt",
+      "effects": [
+        "@MetallicizeValor"
+      ],
+      "pools": [
+        "MegaPool"
+      ],
+      "lore_tooltips": [
+        {
+          "english": "Steel in the blood, resolve in the heart.",
+          "chinese": "血液中的钢铁，心中的决心。"
+        }
+      ]
+    }
+  ],
+  "effects": [
+    {
+      "id": "MetallicizeValor",
+      "name": "CardEffectAddStatusEffect",
+      "target_mode": "drop_target_character",
+      "target_team": "both",
+      "param_status_effects": [
+        {
+          "status": "valor",
+          "count": 5
+        }
+      ]
+    }
+  ]
+}

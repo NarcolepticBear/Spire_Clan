@@ -1,0 +1,55 @@
+{
+  "$schema": "https://github.com/Monster-Train-2-Modding-Group/Trainworks-Reloaded/releases/latest/download/schema.json",
+  "cards": [
+    {
+      "id": "GremlinWizardUnit",
+      "names": {
+        "english": "Gremlin Wizard",
+        "chinese": "地精法师"
+      },
+      "card_art": "@BasicBannerUnitCardArt",
+      "cost": 0,
+      "card_type": "monster",
+      "rarity": "uncommon",
+      "class": "@ClassBasic",
+      "targets_room": true,
+      "targetless": false,
+      "pools": [  ],
+      "effects": [ "@SpawnGremlinWizard" ],
+      "lore_tooltips": [
+        {
+          "english": "A cunning spellcaster with a dangerous grin.",
+          "chinese": "带着危险笑容的狡猾法师。"
+        }
+      ]
+    }
+  ],
+  "characters": [
+    {
+      "id": "GremlinWizardCharacter",
+      "names": {
+        "english": "Gremlin Wizard",
+        "chinese": "地精法师"
+      },
+      "character_art": "@BasicBannerUnitCharacterArt",
+      "size": 1,
+      "health": 10,
+      "attack_damage": 5,
+      "subtypes": [ "@GremlinSubtype" ],
+      "starting_status_effects": [
+        {
+          "status": "conduit",
+          "count": 10
+        }
+      ]
+    }
+  ],
+  "effects": [
+    {
+      "id": "SpawnGremlinWizard",
+      "name": "CardEffectSpawnMonster",
+      "target_mode": "room",
+      "param_character": "@GremlinWizardCharacter"
+    }
+  ]
+}

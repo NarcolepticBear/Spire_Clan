@@ -1,0 +1,66 @@
+{
+  "$schema": "https://github.com/Monster-Train-2-Modding-Group/Trainworks-Reloaded/releases/latest/download/schema.json",
+  "cards": [
+    {
+      "id": "SlimeBossUnit",
+      "names": {
+        "english": "Slime Boss",
+        "chinese": "史莱姆 boss"
+      },
+      "card_art": "@BasicBannerUnitCardArt",
+      "cost": 2,
+      "card_type": "monster",
+      "rarity": "uncommon",
+      "class": "@ClassBasic",
+      "targets_room": true,
+      "targetless": false,
+      "pools": [ "UnitsAllBanner", "@UnitsBasicClanBanner" ],
+      "effects": [ "@SpawnSlimeBoss" ],
+      "lore_tooltips": [
+        {
+          "english": "A giant, sticky boss that floods the lane with pressure.",
+          "chinese": "巨大的黏性 boss，会让路线被压得喘不过气。"
+        }
+      ]
+    }
+  ],
+  "characters": [
+    {
+      "id": "SlimeBossCharacter",
+      "names": {
+        "english": "Slime Boss",
+        "chinese": "史莱姆 boss"
+      },
+      "character_art": "@BasicBannerUnitCharacterArt",
+      "size": 2,
+      "health": 40,
+      "attack_damage": 10,
+      "subtypes": [ "SubtypesData_BannerUnit", "@BasicSubtype" ],
+      "triggers": [ "@SlimeBossRevenge" ]
+    }
+  ],
+  "character_triggers": [
+    {
+      "id": "SlimeBossRevenge",
+      "trigger": "on_hit",
+      "descriptions": {
+        "english": "Summon a Twig Slime."
+      },
+      "effects": [ "@SlimeBossSummonTwigSlime" ]
+    }
+  ],
+  "effects": [
+    {
+      "id": "SpawnSlimeBoss",
+      "name": "CardEffectSpawnMonster",
+      "target_mode": "room",
+      "param_character": "@SlimeBossCharacter"
+    },
+    {
+      "id": "SlimeBossSummonTwigSlime",
+      "name": "CardEffectSpawnMonster",
+      "target_mode": "room",
+      "param_character": "@TwigSlimeCharacter"
+    }
+  ]
+}

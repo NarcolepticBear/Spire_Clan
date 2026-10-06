@@ -1,0 +1,62 @@
+{
+  "$schema": "https://github.com/Monster-Train-2-Modding-Group/Trainworks-Reloaded/releases/latest/download/schema.json",
+  "cards": [
+    {
+      "id": "KnowledgeOverwhelming",
+      "cost": 1,
+      "card_type": "spell",
+      "names": {
+        "english": "Knowledge Overwhelming",
+        "chinese": "压倒性知识"
+      },
+      "descriptions": {
+        "english": "Apply [dazed] 1 to an enemy unit. If the target is friendly, also apply [armor] 25.",
+        "chinese": "对一个敌方单位施加 [dazed] 1。如果目标是友方单位，则额外施加 [armor] 25。"
+      },
+      "rarity": "common",
+      "targets_room": true,
+      "targetless": false,
+      "class": "@ClassBasic",
+      "card_art": "@BasicCommonSpellCardArt",
+      "effects": [
+        "@KnowledgeOverwhelmingDaze",
+        "@KnowledgeOverwhelmingArmor"
+      ],
+      "pools": [
+        "MegaPool"
+      ],
+      "lore_tooltips": [
+        {
+          "english": "A flood of ideas that bends the edge of reality.",
+          "chinese": "一股压倒性的思想潮流，使现实边界扭曲。"
+        }
+      ]
+    }
+  ],
+  "effects": [
+    {
+      "id": "KnowledgeOverwhelmingDaze",
+      "name": "CardEffectAddStatusEffect",
+      "target_mode": "drop_target_character",
+      "target_team": "heroes",
+      "param_status_effects": [
+        {
+          "status": "dazed",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "id": "KnowledgeOverwhelmingArmor",
+      "name": "CardEffectAddStatusEffect",
+      "target_mode": "drop_target_character",
+      "target_team": "heroes",
+      "param_status_effects": [
+        {
+          "status": "armor",
+          "count": 25
+        }
+      ]
+    }
+  ]
+}

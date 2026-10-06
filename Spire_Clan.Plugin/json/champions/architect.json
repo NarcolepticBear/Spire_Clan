@@ -1,0 +1,116 @@
+{
+	"$schema": "https://github.com/Monster-Train-2-Modding-Group/Trainworks-Reloaded/releases/latest/download/schema.json",
+	"cards": [
+		{
+			"id": "ArchitectCard",
+			"names": {
+				"english": "Architect"
+			},
+			"card_art": "@ArchitectCardArt",
+			"cost": 0,
+			"card_type": "monster",
+			"rarity": "champion",
+			"class": "@ClassBasic",
+			"targets_room": true,
+			"targetless": false,
+			"effects": [ "@SpawnArchitect" ],
+			"lore_tooltips": []
+		}
+	],
+	"characters": [
+		{
+			"id": "ArchitectCharacter",
+			"names": {
+				"english": "Architect"
+			},
+			"character_art": "@ArchitectCharacterArt",
+			"size": 3,
+			"health": 10,
+			"attack_damage": 10,
+			"subtypes": [ "SubtypesData_Champion_83f21cbe-9d9b-4566-a2c3-ca559ab8ff34" ]
+		}
+	],
+	"upgrades": [
+		{
+			"id": "ArchitectUpgradePathI",
+			"titles": { "english": "Architect I" },
+			"bonus_damage": 30,
+			"bonus_hp": 30
+		},
+		{
+			"id": "ArchitectUpgradePathII",
+			"titles": { "english": "Architect II" },
+			"bonus_damage": 90,
+			"bonus_hp": 60
+		},
+		{
+			"id": "ArchitectUpgradePathIII",
+			"titles": { "english": "Architect III" },
+			"trigger_upgrades": [ "@ArchitectTriggerIII" ],
+			"bonus_damage": 270,
+			"bonus_hp": 120
+		}
+	],
+	"character_triggers": [
+		{
+			"id": "ArchitectTriggerIII",
+			"trigger": "post_combat",
+			"effects": [ "@ArchitectGain5Buff" ]
+		}
+	],
+	"effects": [
+		{
+			"id": "SpawnArchitect",
+			"name": "CardEffectSpawnMonster",
+			"target_mode": "room",
+			"param_character": "@ArchitectCharacter"
+		},
+		{
+			"id": "ArchitectGain5Buff",
+			"name": "CardEffectAddStatusEffect",
+			"target_mode": "self",
+			"param_status_effects": [
+				{
+					"status": "buff",
+					"count": 5
+				}
+			]
+		}
+	],
+	"game_objects": [
+		{
+			"id": "ArchitectCardArt",
+			"type": "card_art",
+			"extensions": {
+				"card_art": { "sprite": "@ArchitectCardSprite" }
+			}
+		},
+		{
+			"id": "ArchitectCharacterArt",
+			"type": "character_art",
+			"extensions": {
+				"character_art": { "sprite": "@ArchitectCharacterSprite" }
+			}
+		},
+		{
+			"id": "ArchitectClassDisplayCharacterArt",
+			"type": "character_art",
+			"extensions": {
+				"character_art": {
+					"sprite": "@ArchitectCharacterSprite",
+					"transform": {
+						"position": { "x": 2, "y": 1.4, "z": 0 },
+						"scale": { "x": 2.25, "y": 2.25, "z": 1 }
+					}
+				}
+			}
+		}
+	],
+	"sprites": [
+		{ "id": "ArchitectCardSprite", "path": "textures/card_art/ChampionA.png" },
+		{ "id": "ArchitectCharacterSprite", "path": "textures/character_art/ChampionA.png" },
+		{ "id": "ArchitectPortrait", "path": "textures/icons/ChampionAPortrait.png" },
+		{ "id": "ArchitectIcon", "path": "textures/icons/ChampionA.png" },
+		{ "id": "ArchitectLockedIcon", "path": "textures/icons/ChampionALocked.png" }
+	]
+}

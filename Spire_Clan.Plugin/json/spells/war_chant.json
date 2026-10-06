@@ -1,0 +1,67 @@
+{
+  "$schema": "https://github.com/Monster-Train-2-Modding-Group/Trainworks-Reloaded/releases/latest/download/schema.json",
+  "cards": [
+    {
+      "id": "WarChant",
+      "cost": 2,
+      "card_type": "spell",
+      "names": {
+        "english": "War Chant",
+        "chinese": "战斗咏叹"
+      },
+      "descriptions": {
+        "english": "Apply [armor] 20 to the front friendly unit on each floor. Give +[effect1.upgrade.bonusdamage][attack] to the rear friendly unit on each floor.",
+        "chinese": "为每层前排友方单位施加 [armor] 20。为每层后排友方单位提供 +20 攻击。"
+      },
+      "rarity": "uncommon",
+      "targets_room": false,
+      "targetless": true,
+      "class": "@ClassBasic",
+      "card_art": "@BasicCommonSpellCardArt",
+      "effects": [
+        "@WarChantArmor",
+        "@WarChantAttackBoost"
+      ],
+      "pools": [
+        "MegaPool"
+      ],
+      "traits": [
+        "@Consume"
+      ],
+      "lore_tooltips": [
+        {
+          "english": "The line between courage and noise is thin.",
+          "chinese": "勇气和喧闹之间的界线很薄。"
+        }
+      ]
+    }
+  ],
+  "effects": [
+    {
+      "id": "WarChantArmor",
+      "name": "CardEffectAddStatusEffect",
+      "target_mode": "front_in_all_rooms",
+      "target_team": "monsters",
+      "param_status_effects": [
+        {
+          "status": "armor",
+          "count": 20
+        }
+      ]
+    },
+    {
+      "id": "WarChantAttackBoost",
+      "name": "CardEffectAddTempCardUpgradeToUnits",
+      "target_mode": "back_in_room",
+      "target_team": "monsters",
+      "param_int_3": 0,
+      "param_upgrade": "@WarChantAttackUpgrade"
+    }
+  ],
+  "upgrades": [
+    {
+      "id": "WarChantAttackUpgrade",
+      "bonus_damage": 20
+    }
+  ]
+}

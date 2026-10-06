@@ -1,0 +1,49 @@
+{
+  "$schema": "https://github.com/Monster-Train-2-Modding-Group/Trainworks-Reloaded/releases/latest/download/schema.json",
+  "cards": [
+    {
+      "id": "TorchHeadUnit",
+      "names": {
+        "english": "Torch Head",
+        "chinese": "火炬头"
+      },
+      "card_art": "@BasicBannerUnitCardArt",
+      "cost": 1,
+      "card_type": "monster",
+      "rarity": "common",
+      "class": "@ClassBasic",
+      "targets_room": true,
+      "targetless": false,
+      "pools": [ "MegaPool" ],
+      "effects": [ "@SpawnTorchHead" ],
+      "lore_tooltips": [
+        {
+          "english": "A small, volatile threat with a fiery temper.",
+          "chinese": "带着火焰脾气的小型危险单位。"
+        }
+      ]
+    }
+  ],
+  "characters": [
+    {
+      "id": "TorchHeadCharacter",
+      "names": {
+        "english": "Torch Head",
+        "chinese": "火炬头"
+      },
+      "character_art": "@BasicBannerUnitCharacterArt",
+      "size": 1,
+      "health": 10,
+      "attack_damage": 10,
+      "subtypes": [ "@BasicSubtype" ]
+    }
+  ],
+  "effects": [
+    {
+      "id": "SpawnTorchHead",
+      "name": "CardEffectSpawnMonster",
+      "target_mode": "room",
+      "param_character": "@TorchHeadCharacter"
+    }
+  ]
+}

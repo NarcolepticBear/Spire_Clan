@@ -1,0 +1,47 @@
+{
+  "$schema": "https://github.com/Monster-Train-2-Modding-Group/Trainworks-Reloaded/releases/latest/download/schema.json",
+  "cards": [
+    {
+      "id": "GremlinGang",
+      "cost": 3,
+      "card_type": "spell",
+      "names": {
+        "english": "Gremlin Gang",
+        "chinese": "地精团伙"
+      },
+      "descriptions": {
+        "english": "Add all 5 gremlins to your hand.",
+        "chinese": "将全部 5 只地精加入你的手牌。"
+      },
+      "rarity": "rare",
+      "targets_room": false,
+      "targetless": true,
+      "class": "@ClassBasic",
+      "card_art": "@BasicCommonSpellCardArt",
+      "effects": [
+        "@GremlinGangDraw"
+      ],
+      "pools": [
+        "MegaPool"
+      ],
+      "traits": [
+        "@Consume"
+      ],
+      "lore_tooltips": [
+        {
+          "english": "Five little nuisances, all at once.",
+          "chinese": "五个小麻烦，一起到来。"
+        }
+      ]
+    }
+  ],
+  "effects": [
+    {
+      "id": "GremlinGangDraw",
+      "name": "CardEffectAddBattleCard",
+      "param_int": 3,
+      "param_int_2": 5,
+      "param_card_pool": "@GremlinUnitPool"
+    }
+  ]
+}

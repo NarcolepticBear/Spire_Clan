@@ -1,0 +1,77 @@
+{
+  "$schema": "https://github.com/Monster-Train-2-Modding-Group/Trainworks-Reloaded/releases/latest/download/schema.json",
+  "cards": [
+    {
+      "id": "BronzeAutomatonUnit",
+      "names": {
+        "english": "Bronze Automaton"
+      },
+      "card_art": "@BasicBannerUnitCardArt",
+      "cost": 1,
+      "card_type": "monster",
+      "rarity": "uncommon",
+      "class": "@ClassBasic",
+      "targets_room": true,
+      "targetless": false,
+      "pools": [ "UnitsAllBanner", "@UnitsBasicClanBanner" ],
+      "effects": [ "@SpawnBronzeAutomaton" ]
+    },
+    {
+      "id": "BronzeAutomatonHyperbeam",
+      "names": {
+        "english": "Hyperbeam"
+      },
+      "descriptions": {
+        "english": "Deal 150 damage to enemy units and gain 1 Dazed."
+      },
+      "card_type": "spell",
+      "is_an_ability": true,
+      "cooldown": 4,
+      "class": "@ClassBasic",
+      "targetless": true,
+      "initial_keyboard_target": "front_friendly",
+      "effects": [ "@BronzeAutomatonHyperbeamDamage", "@BronzeAutomatonHyperbeamDazed" ]
+    }
+  ],
+  "characters": [
+    {
+      "id": "BronzeAutomatonCharacter",
+      "names": {
+        "english": "Bronze Automaton"
+      },
+      "character_art": "@BasicBannerUnitCharacterArt",
+      "size": 2,
+      "health": 30,
+      "attack_damage": 20,
+      "subtypes": [ "SubtypesData_BannerUnit", "@BasicSubtype" ],
+      "ability": "@BronzeAutomatonHyperbeam"
+    }
+  ],
+  "effects": [
+    {
+      "id": "SpawnBronzeAutomaton",
+      "name": "CardEffectSpawnMonster",
+      "target_mode": "room",
+      "param_character": "@BronzeAutomatonCharacter"
+    },
+    {
+      "id": "BronzeAutomatonHyperbeamDamage",
+      "name": "CardEffectDamage",
+      "target_mode": "room",
+      "target_team": "heroes",
+      "param_int": 150
+    },
+    {
+      "id": "BronzeAutomatonHyperbeamDazed",
+      "name": "CardEffectAddStatusEffect",
+      "target_mode": "self",
+      "target_team": "both",
+      "param_status_effects": [
+        {
+          "status": "dazed",
+          "count": 1
+        }
+      ]
+    }
+  ]
+}

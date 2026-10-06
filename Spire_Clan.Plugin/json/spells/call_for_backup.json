@@ -1,0 +1,46 @@
+{
+  "$schema": "https://github.com/Monster-Train-2-Modding-Group/Trainworks-Reloaded/releases/latest/download/schema.json",
+  "cards": [
+    {
+      "id": "CallForBackup",
+      "cost": 1,
+      "card_type": "spell",
+      "names": {
+        "english": "Call for Backup",
+        "chinese": "求援"
+      },
+      "descriptions": {
+        "english": "Draw 2 units.",
+        "chinese": "抽 2 张单位牌。"
+      },
+      "rarity": "uncommon",
+      "targets_room": false,
+      "targetless": true,
+      "class": "@ClassBasic",
+      "card_art": "@BasicCommonSpellCardArt",
+      "effects": [
+        "@CallForBackupDraw"
+      ],
+      "pools": [
+        "MegaPool"
+      ],
+      "traits": [
+        "@Consume"
+      ],
+      "lore_tooltips": [
+        {
+          "english": "A short shout into the dark.",
+          "chinese": "在黑暗里发出的短促呼喊。"
+        }
+      ]
+    }
+  ],
+  "effects": [
+    {
+      "id": "CallForBackupDraw",
+      "name": "CardEffectDrawType",
+      "target_card_type": "monster",
+      "param_int": 2
+    }
+  ]
+}

@@ -1,0 +1,96 @@
+{
+  "$schema": "https://github.com/Monster-Train-2-Modding-Group/Trainworks-Reloaded/releases/latest/download/schema.json",
+  "cards": [
+    {
+      "id": "HexaghostUnit",
+      "names": {
+        "english": "Hexaghost",
+        "chinese": "六角幽灵"
+      },
+      "card_art": "@BasicBannerUnitCardArt",
+      "cost": 1,
+      "card_type": "monster",
+      "rarity": "uncommon",
+      "class": "@ClassBasic",
+      "targets_room": true,
+      "targetless": false,
+      "pools": [ "UnitsAllBanner", "@UnitsBasicClanBanner" ],
+      "effects": [ "@SpawnHexaghost" ],
+      "lore_tooltips": [
+        {
+          "english": "A haunted brawler that keeps pressure on the front line.",
+          "chinese": "持续压迫前线的缠魂斗士。"
+        }
+      ]
+    },
+    {
+      "id": "HexaghostCharge",
+      "names": {
+        "english": "Charge",
+        "chinese": "蓄力"
+      },
+      "descriptions": {
+        "english": "Spend all remaining ember. Gain 1 [burst] for each ember spent."
+      },
+      "is_an_ability": true,
+      "cooldown": 1,
+      "cost_type": "x",
+      "class": "@ClassBasic",
+      "targetless": true,
+      "targets_room": false,
+      "effects": [ "@HexaghostChargeEffect" ]
+    }
+  ],
+  "characters": [
+    {
+      "id": "HexaghostCharacter",
+      "names": {
+        "english": "Hexaghost",
+        "chinese": "六角幽灵"
+      },
+      "character_art": "@BasicBannerUnitCharacterArt",
+      "size": 2,
+      "health": 20,
+      "attack_damage": 20,
+      "subtypes": [ "SubtypesData_BannerUnit", "@BasicSubtype" ],
+      "ability": "@HexaghostCharge",
+      "triggers": [ "@HexaghostStrike" ]
+    }
+  ],
+  "character_triggers": [
+    {
+      "id": "HexaghostStrike",
+      "trigger": "on_attacking",
+      "descriptions": {
+        "english": "Gain +5 attack."
+      },
+      "effects": [ "@HexaghostGain5Attack" ]
+    }
+  ],
+  "effects": [
+    {
+      "id": "SpawnHexaghost",
+      "name": "CardEffectSpawnMonster",
+      "target_mode": "room",
+      "param_character": "@HexaghostCharacter"
+    },
+    {
+      "id": "HexaghostGain5Attack",
+      "name": "CardEffectBuffDamage",
+      "target_mode": "self",
+      "param_int": 5
+    },
+    {
+      "id": "HexaghostChargeEffect",
+      "name": "CardEffectAddStatusEffectPerEnergy",
+      "target_mode": "self",
+      "target_team": "both",
+      "param_status_effects": [
+        {
+          "status": "burst",
+          "count": 1
+        }
+      ]
+    }
+  ]
+}

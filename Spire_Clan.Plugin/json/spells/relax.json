@@ -1,0 +1,48 @@
+{
+  "$schema": "https://github.com/Monster-Train-2-Modding-Group/Trainworks-Reloaded/releases/latest/download/schema.json",
+  "cards": [
+    {
+      "id": "Relax",
+      "cost": 2,
+      "card_type": "spell",
+      "names": {
+        "english": "Relax",
+        "chinese": "休息"
+      },
+      "descriptions": {
+        "english": "Draw 2 cards and gain +2 Ember next turn.",
+        "chinese": "抽 2 张卡，并在下一回合获得 +2 烈焰。"
+      },
+      "rarity": "common",
+      "targets_room": false,
+      "targetless": true,
+      "class": "@ClassBasic",
+      "card_art": "@BasicCommonSpellCardArt",
+      "effects": [
+        "@RelaxDrawCards",
+        "@RelaxGainEmber"
+      ],
+      "pools": [
+        "MegaPool"
+      ],
+      "lore_tooltips": [
+        {
+          "english": "A slow breath between the fights.",
+          "chinese": "战斗之间的一次缓慢呼吸。"
+        }
+      ]
+    }
+  ],
+  "effects": [
+    {
+      "id": "RelaxDrawCards",
+      "name": "CardEffectDrawAdditionalNextTurn",
+      "param_int": 2
+    },
+    {
+      "id": "RelaxGainEmber",
+      "name": "CardEffectGainEnergyNextTurn",
+      "param_int": 2
+    }
+  ]
+}

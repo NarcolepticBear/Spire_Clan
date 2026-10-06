@@ -1,0 +1,66 @@
+{
+  "$schema": "https://github.com/Monster-Train-2-Modding-Group/Trainworks-Reloaded/releases/latest/download/schema.json",
+  "cards": [
+    {
+      "id": "CollectorUnit",
+      "names": {
+        "english": "Collector",
+        "chinese": "收集者"
+      },
+      "card_art": "@BasicBannerUnitCardArt",
+      "cost": 3,
+      "card_type": "monster",
+      "rarity": "rare",
+      "class": "@ClassBasic",
+      "targets_room": true,
+      "targetless": false,
+      "pools": [ "UnitsAllBanner", "@UnitsBasicClanBanner" ],
+      "effects": [ "@SpawnCollector" ],
+      "lore_tooltips": [
+        {
+          "english": "A relentless collector of trinkets and victory.",
+          "chinese": "收集战利品与胜利的无情搜刮者。"
+        }
+      ]
+    }
+  ],
+  "characters": [
+    {
+      "id": "CollectorCharacter",
+      "names": {
+        "english": "Collector",
+        "chinese": "收集者"
+      },
+      "character_art": "@BasicBannerUnitCharacterArt",
+      "size": 2,
+      "health": 20,
+      "attack_damage": 20,
+      "subtypes": [ "SubtypesData_BannerUnit", "@BasicSubtype" ],
+      "triggers": [ "@CollectorResolve" ]
+    }
+  ],
+  "character_triggers": [
+    {
+      "id": "CollectorResolve",
+      "trigger": "post_combat",
+      "descriptions": {
+        "english": "Summon a Torch Head."
+      },
+      "effects": [ "@CollectorSummonTorchHead" ]
+    }
+  ],
+  "effects": [
+    {
+      "id": "SpawnCollector",
+      "name": "CardEffectSpawnMonster",
+      "target_mode": "room",
+      "param_character": "@CollectorCharacter"
+    },
+    {
+      "id": "CollectorSummonTorchHead",
+      "name": "CardEffectSpawnMonster",
+      "target_mode": "room",
+      "param_character": "@TorchHeadCharacter"
+    }
+  ]
+}

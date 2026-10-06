@@ -1,0 +1,64 @@
+{
+  "$schema": "https://github.com/Monster-Train-2-Modding-Group/Trainworks-Reloaded/releases/latest/download/schema.json",
+  "cards": [
+    {
+      "id": "SneakyGremlinUnit",
+      "names": {
+        "english": "Sneaky Gremlin"
+      },
+      "card_art": "@BasicBannerUnitCardArt",
+      "cost": 0,
+      "card_type": "monster",
+      "rarity": "common",
+      "class": "@ClassBasic",
+      "targets_room": true,
+      "targetless": false,
+      "pools": [  ],
+      "effects": [ "@SpawnSneakyGremlin" ]
+    }
+  ],
+  "characters": [
+    {
+      "id": "SneakyGremlinCharacter",
+      "names": {
+        "english": "Sneaky Gremlin"
+      },
+      "character_art": "@BasicBannerUnitCharacterArt",
+      "size": 1,
+      "health": 5,
+      "attack_damage": 30,
+      "subtypes": [ "@GremlinSubtype" ],
+      "triggers": [ "@SneakyGremlinStrike" ]
+    }
+  ],
+  "character_triggers": [
+    {
+      "id": "SneakyGremlinStrike",
+      "trigger": "on_attacking",
+      "descriptions": {
+        "english": "Apply 1 melee weakness to the attacked enemy."
+      },
+      "effects": [ "@SneakyGremlinApplyMeleeWeakness" ]
+    }
+  ],
+  "effects": [
+    {
+      "id": "SpawnSneakyGremlin",
+      "name": "CardEffectSpawnMonster",
+      "target_mode": "room",
+      "param_character": "@SneakyGremlinCharacter"
+    },
+    {
+      "id": "SneakyGremlinApplyMeleeWeakness",
+      "name": "CardEffectAddStatusEffect",
+      "target_mode": "last_attacked_character",
+      "target_team": "heroes",
+      "param_status_effects": [
+        {
+          "status": "melee weakness",
+          "count": 1
+        }
+      ]
+    }
+  ]
+}

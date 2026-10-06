@@ -1,0 +1,109 @@
+{
+  "$schema": "https://github.com/Monster-Train-2-Modding-Group/Trainworks-Reloaded/releases/latest/download/schema.json",
+  "cards": [
+    {
+      "id": "GremlinLeaderUnit",
+      "names": {
+        "english": "Gremlin Leader",
+        "chinese": "地精首领"
+      },
+      "card_art": "@BasicBannerUnitCardArt",
+      "cost": 2,
+      "card_type": "monster",
+      "rarity": "uncommon",
+      "class": "@ClassBasic",
+      "targets_room": true,
+      "targetless": false,
+      "pools": [ "UnitsAllBanner", "@UnitsBasicClanBanner" ],
+      "effects": [ "@SpawnGremlinLeader" ],
+      "lore_tooltips": [
+        {
+          "english": "A loud, scheming commander that rallies lesser gremlins.",
+          "chinese": "指挥弱小地精的吵闹军师。"
+        }
+      ]
+    },
+    {
+      "id": "GremlinLeaderRecruit",
+      "names": {
+        "english": "Recruit",
+        "chinese": "招募"
+      },
+      "descriptions": {
+        "english": "Add a random Gremlin unit to your hand."
+      },
+      "is_an_ability": true,
+      "cooldown": 1,
+      "class": "@ClassBasic",
+      "targetless": true,
+      "targets_room": false,
+      "effects": [ "@GremlinLeaderRecruitEffect" ]
+    }
+  ],
+  "characters": [
+    {
+      "id": "GremlinLeaderCharacter",
+      "names": {
+        "english": "Gremlin Leader",
+        "chinese": "地精首领"
+      },
+      "character_art": "@BasicBannerUnitCharacterArt",
+      "size": 2,
+      "health": 20,
+      "attack_damage": 30,
+      "subtypes": [ "SubtypesData_BannerUnit", "@BasicSubtype" ],
+      "ability": "@GremlinLeaderRecruit",
+      "triggers": [ "@GremlinLeaderEnchantGremlins" ]
+    }
+  ],
+  "character_triggers": [
+    {
+      "id": "GremlinLeaderEnchantGremlins",
+      "trigger": "after_spawn_enchant",
+      "descriptions": {
+        "english": "Gremlins gain [duality]."
+      },
+      "effects": [ "@GremlinLeaderApplyDualityToGremlins" ]
+    }
+  ],
+  "effects": [
+    {
+      "id": "SpawnGremlinLeader",
+      "name": "CardEffectSpawnMonster",
+      "target_mode": "room",
+      "param_character": "@GremlinLeaderCharacter"
+    },
+    {
+      "id": "GremlinLeaderRecruitEffect",
+      "name": "CardEffectAddBattleCard",
+      "param_int": 3,
+      "param_card_pool": "@GremlinUnitPool"
+    },
+    {
+      "id": "GremlinLeaderApplyDualityToGremlins",
+      "name": "CardEffectEnchant",
+      "target_mode": "room",
+      "target_team": "monsters",
+      "target_subtype": "@GremlinSubtype",
+      "param_status_effects": [
+        {
+          "status": "duality",
+          "count": 1
+        }
+      ],
+      "should_test": false
+    }
+  ],
+  "card_pools": [
+    {
+      "id": "GremlinUnitPool",
+      "cards": [
+        "@FatGremlinUnit",
+        "@MadGremlinUnit",
+        "@ShieldGremlinUnit",
+        "@SneakyGremlinUnit",
+        "@GremlinWizardUnit"
+      ]
+    }
+  ]
+}

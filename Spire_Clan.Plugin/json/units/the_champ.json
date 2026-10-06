@@ -1,0 +1,91 @@
+{
+  "$schema": "https://github.com/Monster-Train-2-Modding-Group/Trainworks-Reloaded/releases/latest/download/schema.json",
+  "cards": [
+    {
+      "id": "TheChampUnit",
+      "names": {
+        "english": "The Champ",
+        "chinese": "冠军"
+      },
+      "card_art": "@BasicBannerUnitCardArt",
+      "cost": 2,
+      "card_type": "monster",
+      "rarity": "uncommon",
+      "class": "@ClassBasic",
+      "targets_room": true,
+      "targetless": false,
+      "pools": [ "UnitsAllBanner", "@UnitsBasicClanBanner" ],
+      "effects": [ "@SpawnTheChamp" ],
+      "lore_tooltips": [
+        {
+          "english": "A bruiser who wins by sheer will and punishment.",
+          "chinese": "用意志与重击赢得胜利的斗士。"
+        }
+      ]
+    }
+  ],
+  "characters": [
+    {
+      "id": "TheChampCharacter",
+      "names": {
+        "english": "The Champ",
+        "chinese": "冠军"
+      },
+      "character_art": "@BasicBannerUnitCharacterArt",
+      "size": 2,
+      "health": 35,
+      "attack_damage": 15,
+      "subtypes": [ "SubtypesData_BannerUnit", "@BasicSubtype" ],
+      "triggers": [ "@TheChampStrike", "@TheChampRevenge" ]
+    }
+  ],
+  "character_triggers": [
+    {
+      "id": "TheChampStrike",
+      "trigger": "on_attacking",
+      "descriptions": {
+        "english": "Gain [valor] [effect0.status0.power].",
+        "chinese": "获得[valor] [effect0.status0.power]。"
+      },
+      "effects": [ "@TheChampGain2Valor" ]
+    },
+    {
+      "id": "TheChampRevenge",
+      "trigger": "on_hit",
+      "descriptions": {
+        "english": "Gain 2 rage."
+      },
+      "effects": [ "@TheChampGain2Rage" ]
+    }
+  ],
+  "effects": [
+    {
+      "id": "SpawnTheChamp",
+      "name": "CardEffectSpawnMonster",
+      "target_mode": "room",
+      "param_character": "@TheChampCharacter"
+    },
+    {
+      "id": "TheChampGain2Valor",
+      "name": "CardEffectAddStatusEffect",
+      "target_mode": "self",
+      "param_status_effects": [
+        {
+          "status": "valor",
+          "count": 2
+        }
+      ]
+    },
+    {
+      "id": "TheChampGain2Rage",
+      "name": "CardEffectAddStatusEffect",
+      "target_mode": "self",
+      "param_status_effects": [
+        {
+          "status": "buff",
+          "count": 2
+        }
+      ]
+    }
+  ]
+}

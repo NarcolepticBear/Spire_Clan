@@ -1,0 +1,47 @@
+{
+  "$schema": "https://github.com/Monster-Train-2-Modding-Group/Trainworks-Reloaded/releases/latest/download/schema.json",
+  "cards": [
+    {
+      "id": "SpireRailspike",
+      "cost": 1,
+      "card_type": "spell",
+      "names": {
+        "english": "Spire Railspike",
+        "chinese": "尖刺铁轨"
+      },
+      "descriptions": {
+        "english": "Deal [effect0.power] damage to an enemy unit.",
+        "chinese": "对一个敌方单位造成 [effect0.power] 点伤害。"
+      },
+      "rarity": "common",
+      "targets_room": true,
+      "targetless": false,
+      "class": "@ClassBasic",
+      "card_art": "@BasicCommonSpellCardArt",
+      "effects": [
+        "@SpireRailspikeDamage"
+      ],
+      "pools": [
+        "MegaPool"
+      ],
+      "traits": [
+        "@Consume"
+      ],
+      "lore_tooltips": [
+        {
+          "english": "A sharp burst of rail-fired force.",
+          "chinese": "一种尖锐的轨道冲击。"
+        }
+      ]
+    }
+  ],
+  "effects": [
+    {
+      "id": "SpireRailspikeDamage",
+      "name": "CardEffectDamage",
+      "target_mode": "drop_target_character",
+      "target_team": "heroes",
+      "param_int": 10
+    }
+  ]
+}

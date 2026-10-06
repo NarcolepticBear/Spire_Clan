@@ -1,0 +1,72 @@
+{
+  "$schema": "https://github.com/Monster-Train-2-Modding-Group/Trainworks-Reloaded/releases/latest/download/schema.json",
+  "cards": [
+    {
+      "id": "ShieldGremlinUnit",
+      "names": {
+        "english": "Shield Gremlin",
+        "chinese": "盾牌地精"
+      },
+      "card_art": "@BasicBannerUnitCardArt",
+      "cost": 0,
+      "card_type": "monster",
+      "rarity": "common",
+      "class": "@ClassBasic",
+      "targets_room": true,
+      "targetless": false,
+      "pools": [  ],
+      "effects": [ "@SpawnShieldGremlin" ],
+      "lore_tooltips": [
+        {
+          "english": "A sturdy defender holding the line for the clan.",
+          "chinese": "守住战线的坚固防御型地精。"
+        }
+      ]
+    }
+  ],
+  "characters": [
+    {
+      "id": "ShieldGremlinCharacter",
+      "names": {
+        "english": "Shield Gremlin",
+        "chinese": "盾牌地精"
+      },
+      "character_art": "@BasicBannerUnitCharacterArt",
+      "size": 1,
+      "health": 20,
+      "attack_damage": 5,
+      "subtypes": [ "@GremlinSubtype" ],
+      "triggers": [ "@ShieldGremlinResolve" ]
+    }
+  ],
+  "character_triggers": [
+    {
+      "id": "ShieldGremlinResolve",
+      "trigger": "post_combat",
+      "descriptions": {
+        "english": "Friendly units gain 5 armor."
+      },
+      "effects": [ "@ShieldGremlinGiveArmor" ]
+    }
+  ],
+  "effects": [
+    {
+      "id": "SpawnShieldGremlin",
+      "name": "CardEffectSpawnMonster",
+      "target_mode": "room",
+      "param_character": "@ShieldGremlinCharacter"
+    },
+    {
+      "id": "ShieldGremlinGiveArmor",
+      "name": "CardEffectAddStatusEffect",
+      "target_mode": "room",
+      "target_team": "monsters",
+      "param_status_effects": [
+        {
+          "status": "armor",
+          "count": 5
+        }
+      ]
+    }
+  ]
+}

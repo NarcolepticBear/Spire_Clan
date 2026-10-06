@@ -1,0 +1,66 @@
+{
+  "$schema": "https://github.com/Monster-Train-2-Modding-Group/Trainworks-Reloaded/releases/latest/download/schema.json",
+  "cards": [
+    {
+      "id": "CultistUnit",
+      "names": {
+        "english": "Cultist",
+        "chinese": "邪教徒"
+      },
+      "card_art": "@BasicBannerUnitCardArt",
+      "cost": 1,
+      "card_type": "monster",
+      "rarity": "common",
+      "class": "@ClassBasic",
+      "targets_room": true,
+      "targetless": false,
+      "pools": [ "MegaPool" ],
+      "effects": [ "@SpawnCultist" ],
+      "lore_tooltips": [
+        {
+          "english": "A fanatical servant who channels forbidden power.",
+          "chinese": "引导禁忌力量的狂热信徒。"
+        }
+      ]
+    }
+  ],
+  "characters": [
+    {
+      "id": "CultistCharacter",
+      "names": {
+        "english": "Cultist",
+        "chinese": "邪教徒"
+      },
+      "character_art": "@BasicBannerUnitCharacterArt",
+      "size": 1,
+      "health": 10,
+      "attack_damage": 5,
+      "subtypes": [ "@BasicSubtype" ],
+      "triggers": [ "@CultistResolve" ]
+    }
+  ],
+  "character_triggers": [
+    {
+      "id": "CultistResolve",
+      "trigger": "post_combat",
+      "descriptions": {
+        "english": "Gain +10 attack."
+      },
+      "effects": [ "@CultistGain10Attack" ]
+    }
+  ],
+  "effects": [
+    {
+      "id": "SpawnCultist",
+      "name": "CardEffectSpawnMonster",
+      "target_mode": "room",
+      "param_character": "@CultistCharacter"
+    },
+    {
+      "id": "CultistGain10Attack",
+      "name": "CardEffectBuffDamage",
+      "target_mode": "self",
+      "param_int": 10
+    }
+  ]
+}

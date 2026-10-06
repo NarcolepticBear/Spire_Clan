@@ -1,0 +1,52 @@
+{
+  "$schema": "https://github.com/Monster-Train-2-Modding-Group/Trainworks-Reloaded/releases/latest/download/schema.json",
+  "cards": [
+    {
+      "id": "ScalingTome",
+      "cost": 1,
+      "card_type": "spell",
+      "names": {
+        "english": "Scaling Tome",
+        "chinese": "成长之书"
+      },
+      "descriptions": {
+        "english": "Apply [resolve] and grant +10 Attack and +10 Health to a friendly unit.",
+        "chinese": "对一个友方单位施加[resolve]，并获得 +10 攻击和 +10 生命。"
+      },
+      "rarity": "rare",
+      "targets_room": true,
+      "targetless": false,
+      "class": "@ClassBasic",
+      "card_art": "@BasicCommonSpellCardArt",
+      "effects": [
+        "@ScalingTomeResolve"
+      ],
+      "pools": [
+        "MegaPool"
+      ],
+      "traits": [
+        "@Consume"
+      ],
+      "lore_tooltips": [
+        {
+          "english": "The page grows heavier with every battle.",
+          "chinese": "每一场战斗都会让这页书变得更重。"
+        }
+      ]
+    }
+  ],
+  "effects": [
+    {
+      "id": "ScalingTomeResolve",
+      "name": "CardEffectAddStatusEffect",
+      "target_mode": "drop_target_character",
+      "target_team": "heroes",
+      "param_status_effects": [
+        {
+          "status": "resolve",
+          "count": 1
+        }
+      ]
+    }
+  ]
+}

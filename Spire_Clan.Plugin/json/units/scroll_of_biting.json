@@ -1,0 +1,58 @@
+{
+  "$schema": "https://github.com/Monster-Train-2-Modding-Group/Trainworks-Reloaded/releases/latest/download/schema.json",
+  "cards": [
+    {
+      "id": "ScrollOfBitingUnit",
+      "names": {
+        "english": "Scroll of Biting"
+      },
+      "card_art": "@BasicBannerUnitCardArt",
+      "cost": 1,
+      "card_type": "monster",
+      "rarity": "champion",
+      "class": "@ClassBasic",
+      "targets_room": true,
+      "targetless": false,
+      "pools": [ "StarterCardsOnly" ],
+      "effects": [ "@SpawnScrollOfBiting" ]
+    }
+  ],
+  "characters": [
+    {
+      "id": "ScrollOfBitingCharacter",
+      "names": {
+        "english": "Scroll of Biting"
+      },
+      "character_art": "@BasicBannerUnitCharacterArt",
+      "size": 1,
+      "health": 5,
+      "attack_damage": 10,
+      "subtypes": [ "@BasicSubtype" ],
+      "triggers": [ "@ScrollOfBitingStrike" ]
+    }
+  ],
+  "character_triggers": [
+    {
+      "id": "ScrollOfBitingStrike",
+      "trigger": "on_attacking",
+      "descriptions": {
+        "english": "Gain +2 attack."
+      },
+      "effects": [ "@ScrollOfBitingGain2Attack" ]
+    }
+  ],
+  "effects": [
+    {
+      "id": "SpawnScrollOfBiting",
+      "name": "CardEffectSpawnMonster",
+      "target_mode": "room",
+      "param_character": "@ScrollOfBitingCharacter"
+    },
+    {
+      "id": "ScrollOfBitingGain2Attack",
+      "name": "CardEffectBuffDamage",
+      "target_mode": "self",
+      "param_int": 2
+    }
+  ]
+}

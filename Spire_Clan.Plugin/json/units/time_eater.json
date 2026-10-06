@@ -1,0 +1,49 @@
+{
+  "$schema": "https://github.com/Monster-Train-2-Modding-Group/Trainworks-Reloaded/releases/latest/download/schema.json",
+  "cards": [
+    {
+      "id": "TimeEaterUnit",
+      "names": {
+        "english": "Time Eater",
+        "chinese": "时间吞噬者"
+      },
+      "card_art": "@BasicBannerUnitCardArt",
+      "cost": 2,
+      "card_type": "monster",
+      "rarity": "rare",
+      "class": "@ClassBasic",
+      "targets_room": true,
+      "targetless": false,
+      "pools": [ "UnitsAllBanner", "@UnitsBasicClanBanner" ],
+      "effects": [ "@SpawnTimeEater" ],
+      "lore_tooltips": [
+        {
+          "english": "A strange, cosmic devourer that eats turns and momentum alike.",
+          "chinese": "吞噬回合与势头的奇异宇宙吞噬者。"
+        }
+      ]
+    }
+  ],
+  "characters": [
+    {
+      "id": "TimeEaterCharacter",
+      "names": {
+        "english": "Time Eater",
+        "chinese": "时间吞噬者"
+      },
+      "character_art": "@BasicBannerUnitCharacterArt",
+      "size": 2,
+      "health": 30,
+      "attack_damage": 20,
+      "subtypes": [ "SubtypesData_BannerUnit", "@BasicSubtype" ]
+    }
+  ],
+  "effects": [
+    {
+      "id": "SpawnTimeEater",
+      "name": "CardEffectSpawnMonster",
+      "target_mode": "room",
+      "param_character": "@TimeEaterCharacter"
+    }
+  ]
+}

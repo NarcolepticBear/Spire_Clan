@@ -1,0 +1,44 @@
+{
+  "$schema": "https://github.com/Monster-Train-2-Modding-Group/Trainworks-Reloaded/releases/latest/download/schema.json",
+  "cards": [
+    {
+      "id": "Echo",
+      "cost": 1,
+      "card_type": "spell",
+      "names": {
+        "english": "Echo",
+        "chinese": "回响"
+      },
+      "descriptions": {
+        "english": "Deal 2 damage and give a random friendly unit +1 Attack.",
+        "chinese": "造成 2 点伤害，并使一个随机友方单位获得 +1 攻击。"
+      },
+      "rarity": "common",
+      "targets_room": true,
+      "targetless": false,
+      "class": "@ClassBasic",
+      "card_art": "@BasicCommonSpellCardArt",
+      "effects": [
+        "@EchoDamage"
+      ],
+      "pools": [
+        "StarterCardsOnly"
+      ],
+      "lore_tooltips": [
+        {
+          "english": "A fleeting echo not yet ready to fade.",
+          "chinese": "一个尚未消散的短暂回响。"
+        }
+      ]
+    }
+  ],
+  "effects": [
+    {
+      "id": "EchoDamage",
+      "name": "CardEffectDamage",
+      "target_mode": "drop_target_character",
+      "target_team": "heroes",
+      "param_int": 2
+    }
+  ]
+}
