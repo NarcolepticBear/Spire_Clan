@@ -1,0 +1,68 @@
+{
+  "$schema": "https://github.com/Monster-Train-2-Modding-Group/Trainworks-Reloaded/releases/latest/download/schema.json",
+  "cards": [
+    {
+      "id": "TheCity",
+      "cost": 1,
+      "card_type": "room",
+      "names": {
+        "english": "The City"
+      },
+      "rarity": "uncommon",
+      "targets_room": true,
+      "targetless": true,
+      "class": "@ClassBasic",
+      "card_art": "@BasicRoomCardArt",
+      "effects": [
+        "@TheCityAttach"
+      ],
+      "pools": [
+        "MegaPool",
+        "RoomAndEquipmentMerchant_RoomPool",
+        "RoomAndEquipmentDraftPool",
+        "TrainRoomPool"
+      ]
+    },
+    {
+      "id": "TheCityAbility",
+      "names": {
+        "english": "Confusing Alleys"
+      },
+      "descriptions": {
+        "english": "Descend a friendly unit."
+      },
+      "card_type": "spell",
+      "rarity": "common",
+      "effects": [
+        "@TheCityDescend"
+      ],
+      "cooldown": 1,
+      "is_room_ability": true,
+      "targets_room": true,
+      "targetless": false,
+      "initial_keyboard_target": "front_friendly"
+    }
+  ],
+  "upgrades": [
+    {
+      "id": "TheCityUpgrade",
+      "room_ability_upgrade": "@TheCityAbility",
+      "show_description_on_cards": true
+    }
+  ],
+  "effects": [
+    {
+      "id": "TheCityAttach",
+      "name": "CardEffectAttachTrainRoomAttachment",
+      "target_team": "both",
+      "param_upgrade": "@TheCityUpgrade"
+    },
+    {
+      "id": "TheCityDescend",
+      "name": "CardEffectBump",
+      "target_mode": "drop_target_character",
+      "target_team": "monsters",
+      "param_int": -1
+    }
+  ]
+}

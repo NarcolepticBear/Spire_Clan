@@ -1,0 +1,86 @@
+{
+  "$schema": "https://github.com/Monster-Train-2-Modding-Group/Trainworks-Reloaded/releases/latest/download/schema.json",
+  "cards": [
+    {
+      "id": "SacrificialAltar",
+      "cost": 2,
+      "card_type": "room",
+      "names": {
+        "english": "Sacrificial Altar"
+      },
+      "rarity": "rare",
+      "targets_room": true,
+      "targetless": true,
+      "class": "@ClassBasic",
+      "card_art": "@BasicRoomCardArt",
+      "effects": [
+        "@SacrificialAltarAttach"
+      ],
+      "pools": [
+        "MegaPool",
+        "RoomAndEquipmentMerchant_RoomPool",
+        "RoomAndEquipmentDraftPool",
+        "TrainRoomPool"
+      ]
+    },
+    {
+      "id": "SacrificialAltarAbility",
+      "names": {
+        "english": "Sacrifice"
+      },
+      "descriptions": {
+        "english": "Sacrifice a friendly unit. Deal its attack as damage to all enemy units."
+      },
+      "card_type": "spell",
+      "rarity": "common",
+      "effects": [
+        "@SacrificialAltarSelectSacrifice",
+        "@SacrificialAltarDamageEnemies",
+        "@SacrificialAltarSacrifice"
+      ],
+      "cooldown": 1,
+      "is_room_ability": true,
+      "targets_room": true,
+      "targetless": false,
+      "can_ability_target_other_floors": false,
+      "initial_keyboard_target": "front_friendly"
+    }
+  ],
+  "upgrades": [
+    {
+      "id": "SacrificialAltarUpgrade",
+      "room_ability_upgrade": "@SacrificialAltarAbility",
+      "show_description_on_cards": true
+    }
+  ],
+  "effects": [
+    {
+      "id": "SacrificialAltarAttach",
+      "name": "CardEffectAttachTrainRoomAttachment",
+      "target_team": "both",
+      "param_upgrade": "@SacrificialAltarUpgrade"
+    },
+    {
+      "id": "SacrificialAltarSelectSacrifice",
+      "name": "CardEffectNULL",
+      "target_mode": "drop_target_character",
+      "target_team": "monsters",
+      "param_int": 1,
+      "param_int_2": 1
+    },
+    {
+      "id": "SacrificialAltarDamageEnemies",
+      "name": "CardEffectDamagePerSourceAttack",
+      "target_mode": "room",
+      "target_team": "heroes",
+      "param_int": 1,
+      "param_bool": true
+    },
+    {
+      "id": "SacrificialAltarSacrifice",
+      "name": "CardEffectSacrifice",
+      "target_mode": "drop_target_character",
+      "target_team": "monsters"
+    }
+  ]
+}

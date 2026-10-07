@@ -79,6 +79,9 @@ namespace Spire_Clan.Plugin
                         "json/equipment/basic_equipment.json",
                         // Rooms
                         "json/rooms/basic_room.json",
+                        "json/rooms/overgrowth.json",
+                        "json/rooms/sacrificial_altar.json",
+                        "json/rooms/the_city.json",
                         // Shop Upgrades (Enhancer)
                         "json/enhancers/basic_enhancer.json",
                         // Artifacts
