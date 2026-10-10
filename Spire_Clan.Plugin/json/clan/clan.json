@@ -26,7 +26,8 @@
       },
       "card_draft_icon": "@CardDraftIcon",
       "class_select_character_displays": [
-        "@ChampionAClassDisplayCharacterArt"
+        "@ArchitectClassDisplayCharacterArt",
+        "@HeartClassDisplayCharacterArt"
       ],
       "card_style": "@BasicClanCardStyle",
       "ui_color": {
@@ -60,18 +61,53 @@
       "champions": [
         {
           "id": "BasicChampionA",
-          "card_data": "@ChampionACard",
-          "starter_card": "@ChampionAStarterCard",
+          "card_data": "@ArchitectCard",
+          "starter_card": "@ScrollOfBitingUnit",
           "upgrade_tree": [
             [
-              "@ChampionAUpgradePathI",
-              "@ChampionAUpgradePathII",
-              "@ChampionAUpgradePathIII"
+              "@ArchitectOverseerI",
+              "@ArchitectOverseerII",
+              "@ArchitectOverseerIII"
+            ],
+            [
+              "@ArchitectBuilderI",
+              "@ArchitectBuilderII",
+              "@ArchitectBuilderIII"
+            ],
+            [
+              "@ArchitectManagerI",
+              "@ArchitectManagerII",
+              "@ArchitectManagerIII"
             ]
           ],
-          "icon": "@ChampionAIcon",
-          "locked_icon": "@ChampionALockedIcon",
-          "portrait": "@ChampionAPortrait"
+          "icon": "@ArchitectIcon",
+          "locked_icon": "@ArchitectLockedIcon",
+          "portrait": "@ArchitectPortrait"
+        },
+        {
+          "id": "HeartChampion",
+          "card_data": "@HeartCard",
+          "starter_card": "@Echo",
+          "upgrade_tree": [
+            [
+              "@HeartInvincibleI",
+              "@HeartInvincibleII",
+              "@HeartInvincibleIII"
+            ],
+            [
+              "@HeartBeatOfDeathI",
+              "@HeartBeatOfDeathII",
+              "@HeartBeatOfDeathIII"
+            ],
+            [
+              "@HeartCorruptorI",
+              "@HeartCorruptorII",
+              "@HeartCorruptorIII"
+            ]
+          ],
+          "icon": "@ArchitectIcon",
+          "locked_icon": "@ArchitectLockedIcon",
+          "portrait": "@ArchitectPortrait"
         }
       ]
     }

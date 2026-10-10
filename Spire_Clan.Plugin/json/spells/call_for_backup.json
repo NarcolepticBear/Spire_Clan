@@ -3,7 +3,7 @@
   "cards": [
     {
       "id": "CallForBackup",
-      "cost": 1,
+      "cost": 0,
       "card_type": "spell",
       "names": {
         "english": "Call for Backup",

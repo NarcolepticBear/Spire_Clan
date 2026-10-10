@@ -44,7 +44,7 @@
       "id": "FatGremlinStrike",
       "trigger": "on_attacking",
       "descriptions": {
-        "english": "Apply 1 spell weakness to the attacked enemy."
+        "english": "Apply spell weakness [effect0.status0.power] to the attacked enemy."
       },
       "effects": [ "@FatGremlinApplySpellWeakness" ]
     }

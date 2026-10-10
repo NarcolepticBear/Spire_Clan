@@ -34,6 +34,7 @@
       "card_type": "spell",
       "rarity": "common",
       "effects": [
+        "@TheCityRequireTargetOnFloor",
         "@TheCityDescend"
       ],
       "cooldown": 1,
@@ -51,6 +52,11 @@
     }
   ],
   "effects": [
+    {
+      "id": "TheCityRequireTargetOnFloor",
+      "name": "@CardEffectRequireRoomAbilityActivatedOnItsFloor",
+      "should_fail_to_cast_if_test_fails": true
+    },
     {
       "id": "TheCityAttach",
       "name": "CardEffectAttachTrainRoomAttachment",

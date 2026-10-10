@@ -53,17 +53,17 @@
       "attack_damage": 15,
       "subtypes": [ "SubtypesData_BannerUnit", "@BasicSubtype" ],
       "ability": "@AwakenedOneFlight",
-      "triggers": [ "@AwakenedOneHarvest" ]
+      "triggers": [ "@AwakenedOneHellbornHarvest" ]
     }
   ],
   "character_triggers": [
     {
-      "id": "AwakenedOneHarvest",
-      "trigger": "on_any_hero_death_on_floor",
+      "id": "AwakenedOneHellbornHarvest",
+      "trigger": "on_any_monster_death_on_floor",
       "descriptions": {
-        "english": "Gain +2 attack and +2 health."
+        "english": "Gain +2 [attack] and +2 [health]."
       },
-      "effects": [ "@AwakenedOneHarvestAttack", "@AwakenedOneHarvestHealth" ]
+      "effects": [ "@AwakenedOneHellbornHarvestAttack", "@AwakenedOneHellbornHarvestHealth" ]
     }
   ],
   "effects": [
@@ -74,13 +74,13 @@
       "param_character": "@AwakenedOneCharacter"
     },
     {
-      "id": "AwakenedOneHarvestAttack",
+      "id": "AwakenedOneHellbornHarvestAttack",
       "name": "CardEffectBuffDamage",
       "target_mode": "self",
       "param_int": 2
     },
     {
-      "id": "AwakenedOneHarvestHealth",
+      "id": "AwakenedOneHellbornHarvestHealth",
       "name": "CardEffectBuffMaxHealth",
       "target_mode": "self",
       "param_int": 2

@@ -10,7 +10,7 @@
         "chinese": "休息"
       },
       "descriptions": {
-        "english": "Draw 2 cards and gain +2 Ember next turn.",
+        "english": "Next turn draw +2 cards and gain +2 [ember]",
         "chinese": "抽 2 张卡，并在下一回合获得 +2 烈焰。"
       },
       "rarity": "common",

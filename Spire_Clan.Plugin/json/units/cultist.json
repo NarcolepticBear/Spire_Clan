@@ -44,7 +44,7 @@
       "id": "CultistResolve",
       "trigger": "post_combat",
       "descriptions": {
-        "english": "Gain +10 attack."
+        "english": "Gain +10 [attack]."
       },
       "effects": [ "@CultistGain10Attack" ]
     }

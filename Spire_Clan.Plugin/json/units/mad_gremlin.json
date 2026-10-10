@@ -44,7 +44,7 @@
       "id": "MadGremlinRevenge",
       "trigger": "on_hit",
       "descriptions": {
-        "english": "Friendly units gain +3 attack."
+        "english": "Friendly units gain +3 [attack]."
       },
       "effects": [ "@MadGremlinBuffFriendlyUnits" ]
     }

@@ -15,6 +15,54 @@
 			"targetless": false,
 			"effects": [ "@SpawnArchitect" ],
 			"lore_tooltips": []
+		},
+		{
+			"id": "ArchitectScryI",
+			"names": { "english": "Scry" },
+			"descriptions": {
+				"english": "Draw 1 card and discard 1 card."
+			},
+			"card_type": "spell",
+			"is_an_ability": true,
+			"cooldown": 1,
+			"targetless": true,
+			"targets_room": false,
+			"effects": [
+				"@ArchitectScryIDraw",
+				"@ArchitectScryIDiscard"
+			]
+		},
+		{
+			"id": "ArchitectScryII",
+			"names": { "english": "Scry 2" },
+			"descriptions": {
+				"english": "Draw 2 cards and discard 1 card."
+			},
+			"card_type": "spell",
+			"is_an_ability": true,
+			"cooldown": 1,
+			"targetless": true,
+			"targets_room": false,
+			"effects": [
+				"@ArchitectScryIIDraw",
+				"@ArchitectScryIIDiscard"
+			]
+		},
+		{
+			"id": "ArchitectScryIII",
+			"names": { "english": "Scry 3" },
+			"descriptions": {
+				"english": "Draw 3 cards and discard 1 card."
+			},
+			"card_type": "spell",
+			"is_an_ability": true,
+			"cooldown": 1,
+			"targetless": true,
+			"targets_room": false,
+			"effects": [
+				"@ArchitectScryIIIDraw",
+				"@ArchitectScryIIIDiscard"
+			]
 		}
 	],
 	"characters": [
@@ -24,7 +72,7 @@
 				"english": "Architect"
 			},
 			"character_art": "@ArchitectCharacterArt",
-			"size": 3,
+			"size": 2,
 			"health": 10,
 			"attack_damage": 10,
 			"subtypes": [ "SubtypesData_Champion_83f21cbe-9d9b-4566-a2c3-ca559ab8ff34" ]
@@ -32,33 +80,125 @@
 	],
 	"upgrades": [
 		{
-			"id": "ArchitectUpgradePathI",
-			"titles": { "english": "Architect I" },
-			"bonus_damage": 30,
-			"bonus_hp": 30
+			"id": "ArchitectOverseerI",
+			"titles": { "english": "Overseer" },
+			"bonus_damage": 20,
+			"bonus_hp": 5,
+			"ability_upgrade": "@ArchitectScryI"
 		},
 		{
-			"id": "ArchitectUpgradePathII",
-			"titles": { "english": "Architect II" },
+			"id": "ArchitectOverseerII",
+			"titles": { "english": "Overseer II" },
+			"bonus_damage": 50,
+			"bonus_hp": 10,
+			"ability_upgrade": "@ArchitectScryII"
+		},
+		{
+			"id": "ArchitectOverseerIII",
+			"titles": { "english": "Overseer III" },
 			"bonus_damage": 90,
-			"bonus_hp": 60
+			"bonus_hp": 20,
+			"ability_upgrade": "@ArchitectScryIII"
 		},
 		{
-			"id": "ArchitectUpgradePathIII",
-			"titles": { "english": "Architect III" },
-			"trigger_upgrades": [ "@ArchitectTriggerIII" ],
-			"bonus_damage": 270,
-			"bonus_hp": 120
+			"id": "ArchitectBuilderI",
+			"titles": { "english": "Builder" },
+			"bonus_damage": 10
+		},
+		{
+			"id": "ArchitectBuilderII",
+			"titles": { "english": "Builder II" },
+			"bonus_damage": 25,
+			"bonus_hp": 10,
+			"trigger_upgrades": [ "@ArchitectBuilderFloorBuff" ]
+		},
+		{
+			"id": "ArchitectBuilderIII",
+			"titles": { "english": "Builder III" },
+			"bonus_damage": 40,
+			"bonus_hp": 20,
+			"trigger_upgrades": [ "@ArchitectBuilderTrainBuff" ]
+		},
+		{
+			"id": "ArchitectManagerI",
+			"titles": { "english": "Manager" },
+			"bonus_damage": 25,
+			"bonus_hp": 10,
+			"trigger_upgrades": [ "@ArchitectManagerHarvestI" ]
+		},
+		{
+			"id": "ArchitectManagerII",
+			"titles": { "english": "Manager II" },
+			"bonus_damage": 65,
+			"bonus_hp": 25,
+			"trigger_upgrades": [ "@ArchitectManagerHarvestII" ]
+		},
+		{
+			"id": "ArchitectManagerIII",
+			"titles": { "english": "Manager III" },
+			"bonus_damage": 125,
+			"bonus_hp": 50,
+			"trigger_upgrades": [ "@ArchitectManagerHarvestIII" ]
 		}
 	],
 	"character_triggers": [
 		{
-			"id": "ArchitectTriggerIII",
+			"id": "ArchitectBuilderFloorBuff",
 			"trigger": "post_combat",
-			"effects": [ "@ArchitectGain5Buff" ]
+			"descriptions": {
+				"english": "Friendly units on each floor gain +1 attack for each friendly unit on that floor."
+			},
+			"effects": [ "@ArchitectBuilderFloorBuffEffect" ]
+		},
+		{
+			"id": "ArchitectBuilderTrainBuff",
+			"trigger": "post_combat",
+			"descriptions": {
+				"english": "Friendly units on all floors gain +1 attack for each friendly unit on the train."
+			},
+			"effects": [ "@ArchitectBuilderTrainBuffEffect" ]
+		},
+		{
+			"id": "ArchitectManagerHarvestI",
+			"trigger": "on_any_unit_death_on_floor",
+			"descriptions": {
+				"english": "Harvest: Friendly units on all floors gain +2 attack."
+			},
+			"effects": [ "@ArchitectManagerHarvestBuffI" ]
+		},
+		{
+			"id": "ArchitectManagerHarvestII",
+			"trigger": "on_any_unit_death_on_floor",
+			"descriptions": {
+				"english": "Harvest: Friendly units on all floors gain +4 attack."
+			},
+			"effects": [ "@ArchitectManagerHarvestBuffII" ]
+		},
+		{
+			"id": "ArchitectManagerHarvestIII",
+			"trigger": "on_any_unit_death_on_floor",
+			"descriptions": {
+				"english": "Harvest: Friendly units on all floors gain +8 attack."
+			},
+			"effects": [ "@ArchitectManagerHarvestBuffIII" ]
 		}
 	],
 	"effects": [
+		{
+			"id": "ArchitectBuilderFloorBuffEffect",
+			"name": "@CardEffectBuffDamagePerUnitCount",
+			"target_mode": "tower",
+			"target_team": "monsters",
+			"param_int": 1
+		},
+		{
+			"id": "ArchitectBuilderTrainBuffEffect",
+			"name": "@CardEffectBuffDamagePerUnitCount",
+			"target_mode": "tower",
+			"target_team": "monsters",
+			"param_int": 1,
+			"param_bool": true
+		},
 		{
 			"id": "SpawnArchitect",
 			"name": "CardEffectSpawnMonster",
@@ -66,15 +206,58 @@
 			"param_character": "@ArchitectCharacter"
 		},
 		{
-			"id": "ArchitectGain5Buff",
-			"name": "CardEffectAddStatusEffect",
-			"target_mode": "self",
-			"param_status_effects": [
-				{
-					"status": "buff",
-					"count": 5
-				}
-			]
+			"id": "ArchitectScryIDraw",
+			"name": "CardEffectDraw",
+			"param_int": 1
+		},
+		{
+			"id": "ArchitectScryIDiscard",
+			"name": "CardEffectChooseDiscard",
+			"param_int": 0,
+			"param_int_2": 5
+		},
+		{
+			"id": "ArchitectScryIIDraw",
+			"name": "CardEffectDraw",
+			"param_int": 2
+		},
+		{
+			"id": "ArchitectScryIIDiscard",
+			"name": "CardEffectChooseDiscard",
+			"param_int": 0,
+			"param_int_2": 5
+		},
+		{
+			"id": "ArchitectScryIIIDraw",
+			"name": "CardEffectDraw",
+			"param_int": 3
+		},
+		{
+			"id": "ArchitectScryIIIDiscard",
+			"name": "CardEffectChooseDiscard",
+			"param_int": 0,
+			"param_int_2": 5
+		},
+		{
+			"id": "ArchitectManagerHarvestBuffI",
+			"name": "CardEffectBuffDamage",
+			"target_mode": "tower",
+			"target_team": "monsters",
+			"param_int": 2
+		},
+		{
+			"id": "ArchitectManagerHarvestBuffII",
+			"name": "CardEffectBuffDamage",
+			"target_mode": "tower",
+			"target_team": "monsters",
+			"param_int": 4
+		},
+		{
+			"id": "ArchitectManagerHarvestBuffIII",
+			"name": "CardEffectBuffDamage",
+			"target_mode": "tower",
+			"target_team": "monsters",
+			"param_int": 8
 		}
 	],
 	"game_objects": [

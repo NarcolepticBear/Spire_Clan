@@ -1,6 +1,8 @@
 ﻿using BepInEx;
 using BepInEx.Logging;
 using HarmonyLib;
+using Spire_Clan.Plugin.Code.CardEffects;
+using TrainworksReloaded.Base;
 using TrainworksReloaded.Core;
 using TrainworksReloaded.Core.Extensions;
 
@@ -34,6 +36,8 @@ namespace Spire_Clan.Plugin
                         "json/clan/clan_subtypes.json",
                         // Required: A Clan Champion with one Upgrade Path.
                         "json/champions/basic_champion.json",
+                        "json/champions/architect.json",
+                        "json/champions/heart.json",
                         // Spell Cards
                         // Starter (required).
                         "json/spells/basic_starter.json",
@@ -43,6 +47,7 @@ namespace Spire_Clan.Plugin
                         "json/spells/echo.json",
                         "json/spells/book_of_stabbing.json",
                         "json/spells/gas_bomb.json",
+                        "json/spells/gas_bomb_floor_scaling.json",
                         "json/spells/relax.json",
                         "json/spells/knowledge_overwhelming.json",
                         "json/spells/war_chant.json",
@@ -89,6 +94,11 @@ namespace Spire_Clan.Plugin
                     );
                 }
             );
+
+            Roundhouse.WhenReady(MyPluginInfo.PLUGIN_GUID, gameDataManager =>
+            {
+                CardEffectBuffDamagePerUnitCount.ConfigureTrackedValues(gameDataManager);
+            });
 
             Logger.LogInfo($"Plugin {MyPluginInfo.PLUGIN_GUID} is loaded!");
 

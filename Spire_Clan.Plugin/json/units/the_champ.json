@@ -53,7 +53,7 @@
       "id": "TheChampRevenge",
       "trigger": "on_hit",
       "descriptions": {
-        "english": "Gain 2 rage."
+        "english": "Gain Rage [effect0.status0.power]."
       },
       "effects": [ "@TheChampGain2Rage" ]
     }

@@ -1,0 +1,376 @@
+{
+  "$schema": "https://github.com/Monster-Train-2-Modding-Group/Trainworks-Reloaded/releases/latest/download/schema.json",
+  "cards": [
+    {
+      "id": "HeartCard",
+      "names": {
+        "english": "Invincible"
+      },
+      "card_art": "@ArchitectCardArt",
+      "cost": 0,
+      "card_type": "monster",
+      "rarity": "champion",
+      "class": "@ClassBasic",
+      "targets_room": true,
+      "targetless": false,
+      "effects": [ "@SpawnHeart" ],
+      "lore_tooltips": []
+    }
+  ],
+  "characters": [
+    {
+      "id": "HeartCharacter",
+      "names": {
+        "english": "Heart"
+      },
+      "character_art": "@ArchitectCharacterArt",
+      "size": 3,
+      "health": 20,
+      "attack_damage": 20,
+      "subtypes": [ "SubtypesData_Champion_83f21cbe-9d9b-4566-a2c3-ca559ab8ff34" ]
+    }
+  ],
+  "upgrades": [
+    {
+      "id": "HeartInvincibleAttackUpgrade",
+      "bonus_damage": 1
+    },
+    {
+      "id": "HeartInvincibleI",
+      "titles": { "english": "Invincible" },
+      "bonus_damage": 5,
+      "bonus_hp": 25,
+      "trigger_upgrades": [
+        "@HeartInvincibleRevenge",
+        "@HeartInvincibleActionI"
+      ]
+    },
+    {
+      "id": "HeartInvincibleII",
+      "titles": { "english": "Invincible II" },
+      "bonus_damage": 15,
+      "bonus_hp": 55,
+      "trigger_upgrades": [
+        "@HeartInvincibleRevenge",
+        "@HeartInvincibleActionII"
+      ]
+    },
+    {
+      "id": "HeartInvincibleIII",
+      "titles": { "english": "Invincible III" },
+      "bonus_damage": 30,
+      "bonus_hp": 95,
+      "status_effect_upgrades": [
+        {
+          "status": "titanite",
+          "count": 1
+        }
+      ],
+      "trigger_upgrades": [
+        "@HeartInvincibleRevenge",
+        "@HeartInvincibleActionIII"
+      ]
+    },
+    {
+      "id": "HeartBeatOfDeathI",
+      "titles": { "english": "Beat of Death" },
+      "bonus_damage": 10,
+      "bonus_hp": 5,
+      "trigger_upgrades": [ "@HeartBeatOfDeathIncantI" ]
+    },
+    {
+      "id": "HeartBeatOfDeathII",
+      "titles": { "english": "Beat of Death II" },
+      "bonus_damage": 25,
+      "bonus_hp": 20,
+      "trigger_upgrades": [ "@HeartBeatOfDeathIncantII" ]
+    },
+    {
+      "id": "HeartBeatOfDeathIII",
+      "titles": { "english": "Beat of Death III" },
+      "bonus_damage": 45,
+      "bonus_hp": 45,
+      "trigger_upgrades": [ "@HeartBeatOfDeathIncantIII" ]
+    },
+    {
+      "id": "HeartCorruptorI",
+      "titles": { "english": "Corruptor" },
+      "bonus_damage": 10,
+      "bonus_hp": 15,
+      "trigger_upgrades": [ "@HeartCorruptorStrikeI" ]
+    },
+    {
+      "id": "HeartCorruptorII",
+      "titles": { "english": "Corruptor II" },
+      "bonus_damage": 20,
+      "bonus_hp": 30,
+      "status_effect_upgrades": [
+        {
+          "status": "sweep",
+          "count": 1
+        }
+      ],
+      "trigger_upgrades": [ "@HeartCorruptorStrikeII" ]
+    },
+    {
+      "id": "HeartCorruptorIII",
+      "titles": { "english": "Corruptor III" },
+      "bonus_damage": 30,
+      "bonus_hp": 50,
+      "status_effect_upgrades": [
+        {
+          "status": "sweep",
+          "count": 1
+        }
+      ],
+      "trigger_upgrades": [ "@HeartCorruptorStrikeIII" ]
+    }
+  ],
+  "character_triggers": [
+    {
+      "id": "HeartInvincibleRevenge",
+      "trigger": "on_hit",
+      "descriptions": {
+        "english": "Gain [titanskin] [effect0.status0.power]."
+      },
+      "effects": [ "@HeartInvincibleGainTitanskin" ]
+    },
+    {
+      "id": "HeartInvincibleActionI",
+      "trigger": "on_turn_begin",
+      "descriptions": {
+        "english": "Gain [attack] equal to [titanskin] stacks and lose all [titanskin]."
+      },
+      "effects": [
+        "@HeartInvincibleGainAttackSelf",
+        "@HeartInvincibleRemoveTitanskin"
+      ]
+    },
+    {
+      "id": "HeartInvincibleActionII",
+      "trigger": "on_turn_begin",
+      "descriptions": {
+        "english": "Give friendly units [attack] equal to [titanskin] stacks and lose all [titanskin]."
+      },
+      "effects": [
+        "@HeartInvincibleGainAttackRoom",
+        "@HeartInvincibleRemoveTitanskin"
+      ]
+    },
+    {
+      "id": "HeartInvincibleActionIII",
+      "trigger": "on_turn_begin",
+      "descriptions": {
+        "english": "Give friendly units [attack] equal to [titanskin] stacks and lose all [titanskin]."
+      },
+      "effects": [
+        "@HeartInvincibleGainAttackRoom",
+        "@HeartInvincibleRemoveTitanskin"
+      ]
+    },
+    {
+      "id": "HeartBeatOfDeathIncantI",
+      "trigger": "card_spell_played",
+      "descriptions": {
+        "english": "Gain [stygianblessing] [effect0.status0.power] and deal [effect1.power] damage per [stygianblessing] to enemy units."
+      },
+      "effects": [
+        "@HeartBeatOfDeathGainShardI",
+        "@HeartBeatOfDeathDamageI"
+      ]
+    },
+    {
+      "id": "HeartBeatOfDeathIncantII",
+      "trigger": "card_spell_played",
+      "descriptions": {
+        "english": "Gain [stygianblessing] [effect0.status0.power] and deal [effect1.power] damage per [stygianblessing] to enemy units."
+      },
+      "effects": [
+        "@HeartBeatOfDeathGainShardI",
+        "@HeartBeatOfDeathDamageII"
+      ]
+    },
+    {
+      "id": "HeartBeatOfDeathIncantIII",
+      "trigger": "card_spell_played",
+      "descriptions": {
+        "english": "Gain [stygianblessing] [effect0.status0.power] and deal [effect1.power] damage per [stygianblessing] to enemy units."
+      },
+      "effects": [
+        "@HeartBeatOfDeathGainShardI",
+        "@HeartBeatOfDeathDamageIII"
+      ]
+    },
+    {
+      "id": "HeartCorruptorStrikeI",
+      "trigger": "on_attacking",
+      "descriptions": {
+        "english": "Apply [corruption] [effect0.status0.power] to the attacked enemy."
+      },
+      "effects": [ "@HeartCorruptorApplyCorruptionI" ]
+    },
+    {
+      "id": "HeartCorruptorStrikeII",
+      "trigger": "on_attacking",
+      "descriptions": {
+        "english": "Apply [corruption] [effect0.status0.power] to the attacked enemy."
+      },
+      "effects": [ "@HeartCorruptorApplyCorruptionII" ]
+    },
+    {
+      "id": "HeartCorruptorStrikeIII",
+      "trigger": "on_attacking",
+      "descriptions": {
+        "english": "Apply [corruption] [effect0.status0.power] to the attacked enemy."
+      },
+      "effects": [ "@HeartCorruptorApplyCorruptionIII" ]
+    }
+  ],
+  "effects": [
+    {
+      "id": "SpawnHeart",
+      "name": "CardEffectSpawnMonster",
+      "target_mode": "room",
+      "param_character": "@HeartCharacter"
+    },
+    {
+      "id": "HeartInvincibleGainTitanskin",
+      "name": "CardEffectAddStatusEffect",
+      "target_mode": "self",
+      "param_status_effects": [
+        {
+          "status": "titanskin",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "id": "HeartInvincibleGainAttackSelf",
+      "name": "CardEffectAddCardUpgradeToUnitsPerStatusEffect",
+      "target_mode": "self",
+      "target_team": "monsters",
+      "param_status_effects": [
+        {
+          "status": "titanskin",
+          "count": 1
+        }
+      ],
+      "param_upgrade": "@HeartInvincibleAttackUpgrade",
+      "param_int_3": 0
+    },
+    {
+      "id": "HeartInvincibleGainAttackRoom",
+      "name": "CardEffectAddCardUpgradeToUnitsPerStatusEffect",
+      "target_mode": "room",
+      "target_team": "monsters",
+      "param_status_effects": [
+        {
+          "status": "titanskin",
+          "count": 1
+        }
+      ],
+      "param_upgrade": "@HeartInvincibleAttackUpgrade",
+      "param_int_3": 0
+    },
+    {
+      "id": "HeartInvincibleRemoveTitanskin",
+      "name": "CardEffectRemoveStatusEffect",
+      "target_mode": "self",
+      "param_status_effects": [
+        {
+          "status": "titanskin",
+          "count": 999
+        }
+      ]
+    },
+    {
+      "id": "HeartBeatOfDeathGainShardI",
+      "name": "CardEffectAddStatusEffect",
+      "target_mode": "self",
+      "param_status_effects": [
+        {
+          "status": "stygian_blessing",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "id": "HeartBeatOfDeathDamageI",
+      "name": "CardEffectDamage",
+      "target_mode": "room",
+      "target_team": "heroes",
+      "param_int": 1,
+      "use_status_effect_multiplier": true,
+      "status_effect_multiplier": "stygian_blessing"
+    },
+    {
+      "id": "HeartBeatOfDeathDamageII",
+      "name": "CardEffectDamage",
+      "target_mode": "room",
+      "target_team": "heroes",
+      "param_int": 2,
+      "use_status_effect_multiplier": true,
+      "status_effect_multiplier": "stygian_blessing"
+    },
+    {
+      "id": "HeartBeatOfDeathDamageIII",
+      "name": "CardEffectDamage",
+      "target_mode": "room",
+      "target_team": "heroes",
+      "param_int": 4,
+      "use_status_effect_multiplier": true,
+      "status_effect_multiplier": "stygian_blessing"
+    },
+    {
+      "id": "HeartCorruptorApplyCorruptionI",
+      "name": "CardEffectAddStatusEffect",
+      "target_mode": "last_attacked_character",
+      "target_team": "heroes",
+      "param_status_effects": [
+        {
+          "status": "corruption",
+          "count": 10
+        }
+      ]
+    },
+    {
+      "id": "HeartCorruptorApplyCorruptionII",
+      "name": "CardEffectAddStatusEffect",
+      "target_mode": "last_attacked_character",
+      "target_team": "heroes",
+      "param_status_effects": [
+        {
+          "status": "corruption",
+          "count": 10
+        }
+      ]
+    },
+    {
+      "id": "HeartCorruptorApplyCorruptionIII",
+      "name": "CardEffectAddStatusEffect",
+      "target_mode": "last_attacked_character",
+      "target_team": "heroes",
+      "param_status_effects": [
+        {
+          "status": "corruption",
+          "count": 20
+        }
+      ]
+    }
+  ],
+  "game_objects": [
+    {
+      "id": "HeartClassDisplayCharacterArt",
+      "type": "character_art",
+      "extensions": {
+        "character_art": {
+          "sprite": "@ArchitectCharacterSprite",
+          "transform": {
+            "position": { "x": 2, "y": 1.4, "z": 0 },
+            "scale": { "x": 2.25, "y": 2.25, "z": 1 }
+          }
+        }
+      }
+    }
+  ]
+}

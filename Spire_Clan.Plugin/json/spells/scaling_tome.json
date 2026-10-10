@@ -10,7 +10,7 @@
         "chinese": "成长之书"
       },
       "descriptions": {
-        "english": "Give a friendly unit a resolve trigger that grants +10 Attack and +10 Health.",
+        "english": "Give a friendly unit Resolve: +10 [attack] and +10 [health].",
         "chinese": "使一个友方单位获得战斗结束时触发的能力：+10 攻击和 +10 生命。"
       },
       "rarity": "rare",

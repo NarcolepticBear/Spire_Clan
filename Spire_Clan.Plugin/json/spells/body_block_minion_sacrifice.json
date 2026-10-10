@@ -6,8 +6,8 @@
       "cost": 1,
       "card_type": "spell",
       "names": {
-        "english": "Body Block / Minion Sacrifice",
-        "chinese": "身体阻挡 / 小怪牺牲"
+        "english": "Body Block",
+        "chinese": "身体阻挡"
       },
       "descriptions": {
         "english": "Summon a Torch Head to the front of the floor.",
@@ -24,6 +24,7 @@
       "pools": [
         "MegaPool"
       ],
+      "initial_keyboard_target": "front_friendly",
       "lore_tooltips": [
         {
           "english": "The offer is small, but the result is unmistakable.",
@@ -37,6 +38,7 @@
       "id": "BodyBlockSummonTorchHead",
       "name": "CardEffectSpawnMonster",
       "target_mode": "front_in_room",
+      "target_team": "monsters",
       "param_character": "@TorchHeadCharacter"
     }
   ]

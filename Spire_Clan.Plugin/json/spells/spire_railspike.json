@@ -13,7 +13,7 @@
         "english": "Deal [effect0.power] damage to an enemy unit.",
         "chinese": "对一个敌方单位造成 [effect0.power] 点伤害。"
       },
-      "rarity": "common",
+      "rarity": "rare",
       "targets_room": true,
       "targetless": false,
       "class": "@ClassBasic",

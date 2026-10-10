@@ -9,7 +9,7 @@
       "card_art": "@BasicBannerUnitCardArt",
       "cost": 1,
       "card_type": "monster",
-      "rarity": "champion",
+      "rarity": "common",
       "class": "@ClassBasic",
       "targets_room": true,
       "targetless": false,
@@ -36,7 +36,7 @@
       "id": "ScrollOfBitingStrike",
       "trigger": "on_attacking",
       "descriptions": {
-        "english": "Gain +2 attack."
+        "english": "Gain +[effect0.power] [attack]."
       },
       "effects": [ "@ScrollOfBitingGain2Attack" ]
     }

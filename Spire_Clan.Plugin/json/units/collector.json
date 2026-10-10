@@ -60,7 +60,8 @@
       "id": "CollectorSummonTorchHead",
       "name": "CardEffectSpawnMonster",
       "target_mode": "room",
-      "param_character": "@TorchHeadCharacter"
+      "param_character": "@TorchHeadCharacter",
+      "param_bool": true
     }
   ]
 }

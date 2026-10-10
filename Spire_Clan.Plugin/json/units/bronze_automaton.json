@@ -22,7 +22,7 @@
         "english": "Hyperbeam"
       },
       "descriptions": {
-        "english": "Deal 150 damage to enemy units and gain 1 Dazed."
+        "english": "Deal [effect0.power] damage to enemy units and gain dazed [effect1.status0.power]."
       },
       "card_type": "spell",
       "is_an_ability": true,

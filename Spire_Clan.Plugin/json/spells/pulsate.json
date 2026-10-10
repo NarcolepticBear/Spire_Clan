@@ -10,8 +10,8 @@
         "chinese": "脉动"
       },
       "descriptions": {
-        "english": "Deal 10 damage to enemies 3 times. Slay: gain +5 Health to friendly units.",
-        "chinese": "对敌人造成 10 点伤害 3 次。斩杀：为友方单位获得 +5 生命。"
+        "english": "Deal [effect0.power] damage to enemies 3 times",
+        "chinese": "对敌人造成 [effect0.power] 点伤害 3 次。斩杀：为友方单位获得 +5 生命。"
       },
       "rarity": "rare",
       "targets_room": true,

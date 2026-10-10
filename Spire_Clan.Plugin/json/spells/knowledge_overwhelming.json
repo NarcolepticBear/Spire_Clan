@@ -10,7 +10,7 @@
         "chinese": "压倒性知识"
       },
       "descriptions": {
-        "english": "Apply [dazed] [effect0.status.power] to an enemy unit. If the target is friendly, also apply [armor] [effect1.status.power].",
+        "english": "Apply [dazed] [effect0.status0.power] to a unit. If the target is friendly, also apply [armor] [effect1.status0.power].",
         "chinese": "对一个敌方单位施加 [dazed] 1。如果目标是友方单位，则额外施加 [armor] 25。"
       },
       "rarity": "common",

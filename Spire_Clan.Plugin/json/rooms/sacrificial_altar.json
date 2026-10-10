@@ -34,6 +34,7 @@
       "card_type": "spell",
       "rarity": "common",
       "effects": [
+        "@RequireTargetOnFloor",
         "@SacrificialAltarSelectSacrifice",
         "@SacrificialAltarDamageEnemies",
         "@SacrificialAltarSacrifice"
@@ -54,6 +55,11 @@
     }
   ],
   "effects": [
+    {
+      "id": "RequireTargetOnFloor",
+      "name": "@CardEffectRequireRoomAbilityActivatedOnItsFloor",
+      "should_fail_to_cast_if_test_fails": true
+    },
     {
       "id": "SacrificialAltarAttach",
       "name": "CardEffectAttachTrainRoomAttachment",

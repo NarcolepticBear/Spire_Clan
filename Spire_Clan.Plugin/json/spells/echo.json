@@ -10,8 +10,8 @@
         "chinese": "回响"
       },
       "descriptions": {
-        "english": "Deal 2 damage and give a random friendly unit +1 Attack.",
-        "chinese": "造成 2 点伤害，并使一个随机友方单位获得 +1 攻击。"
+        "english": "Deal [effect0.power] damage to any unit and give a random friendly unit on this floor +1 [attack].",
+        "chinese": "对任意单位造成 2 点伤害，并使本层一个随机友方单位获得 +1 攻击。"
       },
       "rarity": "common",
       "targets_room": true,
@@ -19,7 +19,8 @@
       "class": "@ClassBasic",
       "card_art": "@BasicCommonSpellCardArt",
       "effects": [
-        "@EchoDamage"
+        "@EchoDamage",
+        "@EchoApplyAttackUpgrade"
       ],
       "pools": [
         "StarterCardsOnly"
@@ -32,13 +33,27 @@
       ]
     }
   ],
+  "upgrades": [
+    {
+      "id": "EchoAttackUpgrade",
+      "bonus_damage": 1
+    }
+  ],
   "effects": [
     {
       "id": "EchoDamage",
       "name": "CardEffectDamage",
       "target_mode": "drop_target_character",
-      "target_team": "heroes",
+      "target_team": "both",
       "param_int": 2
+    },
+    {
+      "id": "EchoApplyAttackUpgrade",
+      "name": "CardEffectAddCardUpgradeToUnits",
+      "target_mode": "random_in_room",
+      "target_team": "monsters",
+      "param_upgrade": "@EchoAttackUpgrade",
+      "param_int_3": 0
     }
   ]
 }

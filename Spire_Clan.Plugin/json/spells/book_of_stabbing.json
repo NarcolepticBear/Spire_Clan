@@ -10,8 +10,8 @@
         "chinese": "刺杀之书"
       },
       "descriptions": {
-        "english": "Deal 10 damage to an enemy, two times. All Books of Stabbing deal one additional hit this combat.",
-        "chinese": "对一个敌方单位造成 10 点伤害两次。本场战斗中所有“刺杀之书”都额外造成一次命中。"
+        "english": "Deal [effect0.power] damage to an enemy, two times. All Books of Stabbing deal one additional hit this combat.",
+        "chinese": "对一个敌方单位造成 [effect0.power] 点伤害两次。本场战斗中所有“刺杀之书”都额外造成一次命中。"
       },
       "rarity": "common",
       "targets_room": true,

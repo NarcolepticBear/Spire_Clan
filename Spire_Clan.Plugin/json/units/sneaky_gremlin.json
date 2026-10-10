@@ -36,7 +36,7 @@
       "id": "SneakyGremlinStrike",
       "trigger": "on_attacking",
       "descriptions": {
-        "english": "Apply 1 melee weakness to the attacked enemy."
+        "english": "Apply melee weakness [effect0.status0.power] to the attacked enemy."
       },
       "effects": [ "@SneakyGremlinApplyMeleeWeakness" ]
     }

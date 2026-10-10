@@ -1,0 +1,55 @@
+{
+  "$schema": "https://github.com/Monster-Train-2-Modding-Group/Trainworks-Reloaded/releases/latest/download/schema.json",
+  "cards": [
+    {
+      "id": "GasBombFloorScaling",
+      "cost": 1,
+      "card_type": "spell",
+      "names": {
+        "english": "Gas Bomb (Floor Scaling)",
+        "chinese": "毒气炸弹（楼层缩放）"
+      },
+      "descriptions": {
+        "english": "Deal [effect0.power] damage per friendly unit on this floor to an enemy unit.",
+        "chinese": "对一个敌方单位造成相当于本层友方单位数量乘以 [effect0.power] 的伤害。"
+      },
+      "rarity": "common",
+      "targets_room": true,
+      "targetless": false,
+      "class": "@ClassBasic",
+      "card_art": "@BasicCommonSpellCardArt",
+      "effects": [
+        "@GasBombFloorScalingDamage"
+      ],
+      "pools": [
+        "MegaPool"
+      ],
+      "traits": [
+        "@Consume",
+        "@GasBombExplosive"
+      ],
+      "lore_tooltips": [
+        {
+          "english": "This example's damage scales with the number of friendly units on the floor.",
+          "chinese": "此示例的伤害会随本层友方单位数量增加。"
+        }
+      ]
+    }
+  ],
+  "effects": [
+    {
+      "id": "GasBombFloorScalingDamage",
+      "name": "@CardEffectDamagePerUnitsOnFloor",
+      "target_mode": "drop_target_character",
+      "target_team": "heroes",
+      "param_int": 10
+    }
+  ],
+  "traits": [
+    {
+      "id": "GasBombFloorScalingExplosive",
+      "name": "CardTraitDamageOverflow",
+      "param_int": 2
+    }
+  ]
+}

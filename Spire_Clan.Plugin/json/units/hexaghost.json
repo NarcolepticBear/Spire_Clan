@@ -62,7 +62,7 @@
       "id": "HexaghostStrike",
       "trigger": "on_attacking",
       "descriptions": {
-        "english": "Gain +5 attack."
+        "english": "Gain +5 [attack]."
       },
       "effects": [ "@HexaghostGain5Attack" ]
     }

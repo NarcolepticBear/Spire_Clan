@@ -1,0 +1,108 @@
+{
+  "$schema": "https://github.com/Monster-Train-2-Modding-Group/Trainworks-Reloaded/releases/latest/download/schema.json",
+  "upgrades": [
+    {
+      "id": "ArchitectTestBuilderI",
+      "titles": { "english": "Builder (Test) I" },
+      "bonus_damage": 10,
+      "trigger_upgrades": [ "@ArchitectTestBuilderCapacityI" ]
+    },
+    {
+      "id": "ArchitectTestBuilderII",
+      "titles": { "english": "Builder (Test) II" },
+      "bonus_damage": 25,
+      "bonus_hp": 10,
+      "trigger_upgrades": [
+        "@ArchitectTestBuilderCapacityII",
+        "@ArchitectTestBuilderFloorBuff"
+      ]
+    },
+    {
+      "id": "ArchitectTestBuilderIII",
+      "titles": { "english": "Builder (Test) III" },
+      "bonus_damage": 40,
+      "bonus_hp": 20,
+      "trigger_upgrades": [
+        "@ArchitectTestBuilderCapacityIII",
+        "@ArchitectTestBuilderTrainBuff"
+      ]
+    }
+  ],
+  "character_triggers": [
+    {
+      "id": "ArchitectTestBuilderCapacityI",
+      "trigger": "on_spawn",
+      "descriptions": {
+        "english": "Increase capacity on all floors by 1."
+      },
+      "effects": [ "@ArchitectTestBuilderCapacityEffectI" ]
+    },
+    {
+      "id": "ArchitectTestBuilderCapacityII",
+      "trigger": "on_spawn",
+      "descriptions": {
+        "english": "Increase capacity on all floors by 1."
+      },
+      "effects": [ "@ArchitectTestBuilderCapacityEffectII" ]
+    },
+    {
+      "id": "ArchitectTestBuilderCapacityIII",
+      "trigger": "on_spawn",
+      "descriptions": {
+        "english": "Increase capacity on all floors by 2."
+      },
+      "effects": [ "@ArchitectTestBuilderCapacityEffectIII" ]
+    },
+    {
+      "id": "ArchitectTestBuilderFloorBuff",
+      "trigger": "post_combat",
+      "descriptions": {
+        "english": "Friendly units on each floor gain +1 attack for each friendly unit on that floor."
+      },
+      "effects": [ "@ArchitectTestBuilderFloorBuffEffect" ]
+    },
+    {
+      "id": "ArchitectTestBuilderTrainBuff",
+      "trigger": "post_combat",
+      "descriptions": {
+        "english": "Friendly units on all floors gain +1 attack for each friendly unit on the train."
+      },
+      "effects": [ "@ArchitectTestBuilderTrainBuffEffect" ]
+    }
+  ],
+  "effects": [
+    {
+      "id": "ArchitectTestBuilderCapacityEffectI",
+      "name": "@CardEffectAdjustCapacityOnAllFloors",
+      "target_team": "monsters",
+      "param_int": 1
+    },
+    {
+      "id": "ArchitectTestBuilderCapacityEffectII",
+      "name": "@CardEffectAdjustCapacityOnAllFloors",
+      "target_team": "monsters",
+      "param_int": 1
+    },
+    {
+      "id": "ArchitectTestBuilderCapacityEffectIII",
+      "name": "@CardEffectAdjustCapacityOnAllFloors",
+      "target_team": "monsters",
+      "param_int": 2
+    },
+    {
+      "id": "ArchitectTestBuilderFloorBuffEffect",
+      "name": "@CardEffectBuffDamagePerUnitCount",
+      "target_mode": "tower",
+      "target_team": "monsters",
+      "param_int": 1
+    },
+    {
+      "id": "ArchitectTestBuilderTrainBuffEffect",
+      "name": "@CardEffectBuffDamagePerUnitCount",
+      "target_mode": "tower",
+      "target_team": "monsters",
+      "param_int": 1,
+      "param_bool": true
+    }
+  ]
+}
