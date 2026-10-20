@@ -1,0 +1,48 @@
+{
+  "$schema": "https://github.com/Monster-Train-2-Modding-Group/Trainworks-Reloaded/releases/latest/download/schema.json",
+  "cards": [
+    {
+      "id": "CultistMask",
+      "names": {
+        "english": "Cultist Mask"
+      },
+      "descriptions": {
+        "english": "Resolve triggers twice."
+      },
+      "cost": 1,
+      "card_type": "equipment",
+      "rarity": "uncommon",
+      "targets_room": true,
+      "targetless": false,
+      "class": "@ClassBasic",
+      "card_art": "@BasicEquipmentCardArt",
+      "effects": [
+        "@CultistMaskEquip"
+      ],
+      "pools": [
+        "MegaPool",
+        "RoomAndEquipmentMerchant_EquipmentPool",
+        "RoomAndEquipmentDraftPool",
+        "EquipmentPoolNonEnemy",
+        "FreeEquipmentMutatorPool"
+      ]
+    }
+  ],
+  "effects": [
+    {
+      "id": "CultistMaskEquip",
+      "name": "CardEffectAttachEquipment",
+      "target_mode": "drop_target_character",
+      "target_team": "monsters",
+      "param_upgrade": "@CultistMaskUpgrade"
+    }
+  ],
+  "upgrades": [
+    {
+      "id": "CultistMaskUpgrade",
+      "bonus_damage": 5,
+      "bonus_hp": 5,
+      "icon": "@BasicEquipmentIcon"
+    }
+  ]
+}

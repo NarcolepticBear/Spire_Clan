@@ -14,6 +14,10 @@
 			"targets_room": true,
 			"targetless": false,
 			"effects": [ "@SpawnArchitect" ],
+			"traits": [
+				"@ArchitectBuilderFloorBuffScaling",
+				"@ArchitectBuilderTrainBuffScaling"
+			],
 			"lore_tooltips": []
 		},
 		{
@@ -65,6 +69,37 @@
 			]
 		}
 	],
+	"traits": [
+		{
+			"id": "ArchitectBuilderFloorBuffScaling",
+			"name": {
+				"id": "@CardTraitScalingUpgradeUnitAttackNumUnitsOnFloor"
+			},
+			"param_int": 1,
+			"param_tracked_value": {
+				"id": "@NumUnitsInTargetRoom",
+				"mod_reference": "Conductor"
+			},
+			"param_team": "monsters",
+			"param_upgrade": "@ArchitectBuilderFloorBuffUpgrade",
+			"effect_text_suppressed": true
+		},
+		{
+			"id": "ArchitectBuilderTrainBuffScaling",
+			"name": {
+				"id": "@CardTraitScalingUpgradeUnitAttackSafely",
+				"mod_reference": "Conductor"
+			},
+			"param_int": 1,
+			"param_tracked_value": {
+				"id": "@NumUnitsOnTrain",
+				"mod_reference": "Conductor"
+			},
+			"param_team": "monsters",
+			"param_upgrade": "@ArchitectBuilderTrainBuffUpgrade",
+			"effect_text_suppressed": true
+		}
+	],
 	"characters": [
 		{
 			"id": "ArchitectCharacter",
@@ -103,21 +138,30 @@
 		{
 			"id": "ArchitectBuilderI",
 			"titles": { "english": "Builder" },
-			"bonus_damage": 10
+			"bonus_damage": 10,
+			"trigger_upgrades": ["@ArchitectBuilderICapacityIncrease"]
 		},
 		{
 			"id": "ArchitectBuilderII",
 			"titles": { "english": "Builder II" },
 			"bonus_damage": 25,
 			"bonus_hp": 10,
-			"trigger_upgrades": [ "@ArchitectBuilderFloorBuff" ]
+			"trigger_upgrades": [ "@ArchitectBuilderFloorBuff", "@ArchitectBuilderICapacityIncrease" ]
 		},
 		{
 			"id": "ArchitectBuilderIII",
 			"titles": { "english": "Builder III" },
 			"bonus_damage": 40,
 			"bonus_hp": 20,
-			"trigger_upgrades": [ "@ArchitectBuilderTrainBuff" ]
+			"trigger_upgrades": [ "@ArchitectBuilderTrainBuff", "@ArchitectBuilderIIICapacityIncrease" ]
+		},
+		{
+			"id": "ArchitectBuilderFloorBuffUpgrade"
+			
+		},
+		{
+			"id": "ArchitectBuilderTrainBuffUpgrade"
+			
 		},
 		{
 			"id": "ArchitectManagerI",
@@ -159,6 +203,22 @@
 			"effects": [ "@ArchitectBuilderTrainBuffEffect" ]
 		},
 		{
+			"id": "ArchitectBuilderICapacityIncrease",
+			"trigger": "on_spawn",
+			"descriptions": {
+				"english": "+[effect0.power] [capacity] on all floors."
+			},
+			"effects": [ "@ArchitectBuilderICapacityIncreaseEffect1", "@ArchitectBuilderICapacityIncreaseEffect2", "@ArchitectBuilderICapacityIncreaseEffect3" ]
+		},
+		{
+			"id": "ArchitectBuilderIIICapacityIncrease",
+			"trigger": "on_spawn",
+			"descriptions": {
+				"english": "+[effect0.power] [capacity] on all floors."
+			},
+			"effects": [ "@ArchitectBuilderIIICapacityIncreaseEffect1", "@ArchitectBuilderIIICapacityIncreaseEffect2", "@ArchitectBuilderIIICapacityIncreaseEffect3" ]
+		},
+		{
 			"id": "ArchitectManagerHarvestI",
 			"trigger": "on_any_unit_death_on_floor",
 			"descriptions": {
@@ -186,18 +246,73 @@
 	"effects": [
 		{
 			"id": "ArchitectBuilderFloorBuffEffect",
-			"name": "@CardEffectBuffDamagePerUnitCount",
+			"name": "CardEffectAddCardUpgradeToUnits",
 			"target_mode": "tower",
 			"target_team": "monsters",
-			"param_int": 1
+			"param_upgrade": "@ArchitectBuilderFloorBuffUpgrade",
+			"param_int_3": 0
 		},
 		{
 			"id": "ArchitectBuilderTrainBuffEffect",
-			"name": "@CardEffectBuffDamagePerUnitCount",
+			"name": "CardEffectAddCardUpgradeToUnits",
 			"target_mode": "tower",
 			"target_team": "monsters",
+			"param_upgrade": "@ArchitectBuilderTrainBuffUpgrade",
+			"param_int_3": 0
+		},
+		{
+			"id": "ArchitectBuilderICapacityIncreaseEffect1",
+			"name": {
+				"id": "@CardEffectAdjustSelectRoomCapacity",
+				"mod_reference": "Conductor"
+			},
 			"param_int": 1,
-			"param_bool": true
+			"param_int_2": 0
+		},
+		{
+			"id": "ArchitectBuilderICapacityIncreaseEffect2",
+			"name": {
+				"id": "@CardEffectAdjustSelectRoomCapacity",
+				"mod_reference": "Conductor"
+			},
+			"param_int": 1,
+			"param_int_2": 1
+		},
+		{
+			"id": "ArchitectBuilderICapacityIncreaseEffect3",
+			"name": {
+				"id": "@CardEffectAdjustSelectRoomCapacity",
+				"mod_reference": "Conductor"
+			},
+			"param_int": 1,
+			"param_int_2": 2
+		},
+		{
+			"id": "ArchitectBuilderIIICapacityIncreaseEffect1",
+			"name": {
+				"id": "@CardEffectAdjustSelectRoomCapacity",
+				"mod_reference": "Conductor"
+			},
+			"param_int": 2,
+			"param_int_2": 0
+		},
+		{
+			"id": "ArchitectBuilderIIICapacityIncreaseEffect2",
+			"name": {
+				"id": "@CardEffectAdjustSelectRoomCapacity",
+				"mod_reference": "Conductor"
+			},
+			"param_int": 2,
+			"param_int_2": 1
+		},
+		{
+			"id": "ArchitectBuilderIIICapacityIncreaseEffect3",
+			"name": {
+				"id": "@CardEffectAdjustSelectRoomCapacity",
+				"mod_reference": "Conductor"
+			},
+			"param_int": 2,
+			"param_int_2": 2
 		},
 		{
 			"id": "SpawnArchitect",

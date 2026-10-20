@@ -47,7 +47,6 @@ namespace Spire_Clan.Plugin
                         "json/spells/echo.json",
                         "json/spells/book_of_stabbing.json",
                         "json/spells/gas_bomb.json",
-                        "json/spells/gas_bomb_floor_scaling.json",
                         "json/spells/relax.json",
                         "json/spells/knowledge_overwhelming.json",
                         "json/spells/war_chant.json",
@@ -82,6 +81,8 @@ namespace Spire_Clan.Plugin
                         "json/units/gremlin_wizard.json",
                         // Equipment
                         "json/equipment/basic_equipment.json",
+                        "json/equipment/cultist_mask.json",
+                        "json/equipment/gorget.json",
                         // Rooms
                         "json/rooms/basic_room.json",
                         "json/rooms/overgrowth.json",

@@ -1,0 +1,54 @@
+{
+  "$schema": "https://github.com/Monster-Train-2-Modding-Group/Trainworks-Reloaded/releases/latest/download/schema.json",
+  "cards": [
+    {
+      "id": "Gorget",
+      "names": {
+        "english": "Gorget"
+      },
+      "descriptions": {
+        
+      },
+      "cost": 1,
+      "card_type": "equipment",
+      "rarity": "common",
+      "targets_room": true,
+      "targetless": false,
+      "class": "@ClassBasic",
+      "card_art": "@BasicEquipmentCardArt",
+      "effects": [
+        "@GorgetEquip"
+      ],
+      "pools": [
+        "MegaPool",
+        "RoomAndEquipmentMerchant_EquipmentPool",
+        "RoomAndEquipmentDraftPool",
+        "EquipmentPoolNonEnemy",
+        "FreeEquipmentMutatorPool"
+      ]
+    }
+  ],
+  "effects": [
+    {
+      "id": "GorgetEquip",
+      "name": "CardEffectAttachEquipment",
+      "target_mode": "drop_target_character",
+      "target_team": "monsters",
+      "param_upgrade": "@GorgetUpgrade"
+    }
+  ],
+  "upgrades": [
+    {
+      "id": "GorgetUpgrade",
+      "bonus_damage": 0,
+      "bonus_hp": 10,
+      "status_effect_upgrades": [
+        {
+          "status": "valor",
+          "count": 8
+        }
+      ],
+      "icon": "@BasicEquipmentIcon"
+    }
+  ]
+}
