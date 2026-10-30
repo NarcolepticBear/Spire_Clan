@@ -1,0 +1,33 @@
+{
+  "$schema": "https://github.com/Monster-Train-2-Modding-Group/Trainworks-Reloaded/releases/latest/download/schema.json",
+  "relics": [
+    {
+      "id": "BloodVial",
+      "type": "collectable",
+      "names": {
+        "english": "Blood Vial"
+      },
+      "descriptions": {
+        "english": "At the start of your turn, friendly units gain +2 health."
+      },
+      "lore_tooltips": [
+        {
+          "english": "A vial of blood with restorative properties."
+        }
+      ],
+      "lore_style": "herzal",
+      "relic_effects": [],
+      "icon": "@BasicArtifactIcon",
+      "icon_small": "@BasicArtifactSmallIcon",
+      "extensions": [
+        {
+          "collectable": {
+            "class": "@ClassBasic",
+            "pools": [ "MegaRelicPool" ],
+            "rarity": "common"
+          }
+        }
+      ]
+    }
+  ]
+}

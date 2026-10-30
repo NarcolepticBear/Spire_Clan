@@ -42,6 +42,12 @@
       "id": "CultistMaskUpgrade",
       "bonus_damage": 5,
       "bonus_hp": 5,
+      "status_effect_upgrades": [
+        {
+          "status": "@cultist_mask_double_resolve",
+          "count": 1
+        }
+      ],
       "icon": "@BasicEquipmentIcon"
     }
   ]

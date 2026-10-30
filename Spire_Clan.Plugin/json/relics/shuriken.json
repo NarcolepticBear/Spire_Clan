@@ -1,0 +1,33 @@
+{
+  "$schema": "https://github.com/Monster-Train-2-Modding-Group/Trainworks-Reloaded/releases/latest/download/schema.json",
+  "relics": [
+    {
+      "id": "Shuriken",
+      "type": "collectable",
+      "names": {
+        "english": "Shuriken"
+      },
+      "descriptions": {
+        "english": "Friendly units gain +1 attack permanently on Siphon."
+      },
+      "lore_tooltips": [
+        {
+          "english": "A keen-edged weapon that sharpens units through Siphon."
+        }
+      ],
+      "lore_style": "herzal",
+      "relic_effects": [],
+      "icon": "@BasicArtifactIcon",
+      "icon_small": "@BasicArtifactSmallIcon",
+      "extensions": [
+        {
+          "collectable": {
+            "class": "@ClassBasic",
+            "pools": [ "MegaRelicPool" ],
+            "rarity": "common"
+          }
+        }
+      ]
+    }
+  ]
+}

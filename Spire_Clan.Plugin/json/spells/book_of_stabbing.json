@@ -10,8 +10,8 @@
         "chinese": "刺杀之书"
       },
       "descriptions": {
-        "english": "Deal [effect0.power] damage to an enemy, two times. All Books of Stabbing deal one additional hit this combat.",
-        "chinese": "对一个敌方单位造成 [effect0.power] 点伤害两次。本场战斗中所有“刺杀之书”都额外造成一次命中。"
+        "english": "Deal [effect0.power] damage to an enemy X times, where X is the number of Books of Stabbing played earlier this combat.",
+        "chinese": "对一个敌方单位造成 [effect0.power] 点伤害 [x] 次，其中 [x] 为本场战斗中此前打出的“刺杀之书”数量。"
       },
       "rarity": "common",
       "targets_room": true,
@@ -25,7 +25,7 @@
         "MegaPool"
       ],
       "traits": [
-        
+        "@BookOfStabbingPlayedScaling"
       ],
       "lore_tooltips": [
         {
@@ -33,6 +33,19 @@
           "chinese": "用针写成的残酷教训。"
         }
       ]
+    }
+  ],
+  "traits": [
+    {
+      "id": "BookOfStabbingPlayedScaling",
+      "name": "CardTraitScalingAddEffectApplications",
+      "param_int": 1,
+      "param_tracked_value": {
+        "id": "@NumSpecificCardPlayed",
+        "mod_reference": "Conductor"
+      },
+      "param_entry_duration": "this_battle",
+      "param_card": "@BookOfStabbing"
     }
   ],
   "effects": [

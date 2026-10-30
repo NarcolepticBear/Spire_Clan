@@ -1,0 +1,45 @@
+{
+  "$schema": "https://github.com/Monster-Train-2-Modding-Group/Trainworks-Reloaded/releases/latest/download/schema.json",
+  "relics": [
+    {
+      "id": "Anchor",
+      "type": "collectable",
+      "names": {
+        "english": "Anchor"
+      },
+      "descriptions": {
+        "english": "On your first turn, apply 15 Armor to the front friendly unit on each floor."
+      },
+      "lore_tooltips": [
+        {
+          "english": "A sturdy anchor that helps your units hold the line."
+        }
+      ],
+      "lore_style": "herzal",
+      "relic_effects": [ "@AnchorArmorStartOfCombat" ],
+      "icon": "@BasicArtifactIcon",
+      "icon_small": "@BasicArtifactSmallIcon",
+      "extensions": [
+        {
+          "collectable": {
+            "class": "@ClassBasic",
+            "pools": [ "MegaRelicPool" ],
+            "rarity": "common"
+          }
+        }
+          ]
+        }
+      ],
+      "relic_effects": [
+        {
+          "id": "AnchorArmorStartOfCombat",
+          "name": "@RelicEffectAnchorArmorStartOfCombat",
+          "param_status_effects": [
+            {
+              "status": "armor",
+              "count": 15
+            }
+          ]
+    }
+  ]
+}

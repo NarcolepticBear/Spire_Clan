@@ -8,14 +8,14 @@ json/
 
 * plugin.json - Only present if you did not generate a minimal clan. Has configuration to change the Firestarter starter card of Pyreborne.
 * global.json - Useful to include definitions used across all files for readability/searchability. Currently contains a Consume trait that is used in various places if minimal clan is generated.
-* artifacts/ - Artifact definitions defined here.
+* relics/ - Artifact definitions defined here.
 * champions/ - Define the two champion cards data here, along with the champion upgrade paths and various other UI sprites champions have.
 * clan/ - Define the clan definition along with the banner, subtypes used, and the clan's card style.
 * enhancers/ - Define the shop upgrades this clan gets
 * equipment/ - Equipment cards
 * rooms/ - Room cards
 * spells/ - Spell cards included in the clan
-* status_efffects/ - Custom status effect definitions if any
+* status_effects/ - Custom status effect definitions if any
 * units/ - Unit cards included in the clan
 
 Be sure when you add a json file to add it to your `Plugin.cs` `AddMergedJsonFile` line otherwise it won't be loaded!

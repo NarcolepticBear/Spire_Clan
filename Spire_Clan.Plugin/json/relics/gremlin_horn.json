@@ -1,0 +1,63 @@
+{
+  "$schema": "https://github.com/Monster-Train-2-Modding-Group/Trainworks-Reloaded/releases/latest/download/schema.json",
+  "relics": [
+    {
+      "id": "GremlinHorn",
+      "type": "collectable",
+      "names": {
+        "english": "Gremlin Horn"
+      },
+      "descriptions": {
+        "english": "Gremlin units get +5 attack, +10 health, and [multistrike] 1."
+      },
+      "lore_tooltips": [
+        {
+          "english": "A horn that rallies and strengthens every Gremlin."
+        }
+      ],
+      "lore_style": "herzal",
+      "relic_effects": [ "@GremlinHornUpgradeEffect" ],
+      "icon": "@BasicArtifactIcon",
+      "icon_small": "@BasicArtifactSmallIcon",
+      "extensions": [
+        {
+          "collectable": {
+            "class": "@ClassBasic",
+            "pools": [ "MegaRelicPool" ],
+            "rarity": "common"
+          }
+        }
+      ]
+    }
+  ],
+  "relic_effects": [
+    {
+      "id": "GremlinHornUpgradeEffect",
+      "name": "RelicEffectAddTempUpgrade",
+      "source_team": "monsters",
+      "param_upgrade": "@GremlinHornUpgrade"
+    }
+  ],
+  "upgrades": [
+    {
+      "id": "GremlinHornUpgrade",
+      "is_unique": true,
+      "bonus_damage": 5,
+      "bonus_hp": 10,
+      "status_effect_upgrades": [
+        {
+          "status": "multistrike",
+          "count": 1
+        }
+      ],
+      "filters": [ "@GremlinHornGremlinUnits" ]
+    }
+  ],
+  "upgrade_masks": [
+    {
+      "id": "GremlinHornGremlinUnits",
+      "card_type": "monster",
+      "required_subtypes": [ "@GremlinSubtype" ]
+    }
+  ]
+}

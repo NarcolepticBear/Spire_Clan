@@ -1,0 +1,33 @@
+{
+  "$schema": "https://github.com/Monster-Train-2-Modding-Group/Trainworks-Reloaded/releases/latest/download/schema.json",
+  "relics": [
+    {
+      "id": "RazorTooth",
+      "type": "collectable",
+      "names": {
+        "english": "Razor Tooth"
+      },
+      "descriptions": {
+        "english": "When you cast a spell that costs 2 or more, reduce its cost by 1 this combat."
+      },
+      "lore_tooltips": [
+        {
+          "english": "A sharp tooth that cuts through the cost of powerful spells."
+        }
+      ],
+      "lore_style": "herzal",
+      "relic_effects": [],
+      "icon": "@BasicArtifactIcon",
+      "icon_small": "@BasicArtifactSmallIcon",
+      "extensions": [
+        {
+          "collectable": {
+            "class": "@ClassBasic",
+            "pools": [ "MegaRelicPool" ],
+            "rarity": "common"
+          }
+        }
+      ]
+    }
+  ]
+}

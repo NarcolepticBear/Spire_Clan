@@ -1,0 +1,12 @@
+{
+  "$schema": "https://github.com/Monster-Train-2-Modding-Group/Trainworks-Reloaded/releases/latest/download/schema.json",
+  "status_effects": [
+    {
+      "id": "cultist_mask_double_resolve",
+      "class_name": "@StatusEffectDoubleResolveTriggerState",
+      "hidden": true,
+      "remove_when_triggered": false,
+      "is_propagatable": false
+    }
+  ]
+}

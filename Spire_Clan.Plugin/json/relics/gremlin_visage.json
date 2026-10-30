@@ -1,0 +1,33 @@
+{
+  "$schema": "https://github.com/Monster-Train-2-Modding-Group/Trainworks-Reloaded/releases/latest/download/schema.json",
+  "relics": [
+    {
+      "id": "GremlinVisage",
+      "type": "collectable",
+      "names": {
+        "english": "Gremlin Visage"
+      },
+      "descriptions": {
+        "english": "During the deployment phase, add a random Gremlin unit to your hand. It has +10 attack and +10 health."
+      },
+      "lore_tooltips": [
+        {
+          "english": "A fearsome mask said to call Gremlins to your side."
+        }
+      ],
+      "lore_style": "herzal",
+      "relic_effects": [],
+      "icon": "@BasicArtifactIcon",
+      "icon_small": "@BasicArtifactSmallIcon",
+      "extensions": [
+        {
+          "collectable": {
+            "class": "@ClassBasic",
+            "pools": [ "MegaRelicPool" ],
+            "rarity": "common"
+          }
+        }
+      ]
+    }
+  ]
+}

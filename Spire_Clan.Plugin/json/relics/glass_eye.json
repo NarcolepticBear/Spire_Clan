@@ -1,0 +1,33 @@
+{
+  "$schema": "https://github.com/Monster-Train-2-Modding-Group/Trainworks-Reloaded/releases/latest/download/schema.json",
+  "relics": [
+    {
+      "id": "GlassEye",
+      "type": "collectable",
+      "names": {
+        "english": "Glass Eye"
+      },
+      "descriptions": {
+        "english": "Upon pickup, gain a unit draft and a rare card draft."
+      },
+      "lore_tooltips": [
+        {
+          "english": "A glass eye that reveals unexpected opportunities."
+        }
+      ],
+      "lore_style": "herzal",
+      "relic_effects": [],
+      "icon": "@BasicArtifactIcon",
+      "icon_small": "@BasicArtifactSmallIcon",
+      "extensions": [
+        {
+          "collectable": {
+            "class": "@ClassBasic",
+            "pools": [ "MegaRelicPool" ],
+            "rarity": "common"
+          }
+        }
+      ]
+    }
+  ]
+}

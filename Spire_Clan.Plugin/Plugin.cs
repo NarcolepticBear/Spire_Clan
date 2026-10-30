@@ -26,6 +26,8 @@ namespace Spire_Clan.Plugin
                     // Be sure to include any new json files if you add more.
                     c.AddMergedJsonFile(
                         "json/global.json",
+                        // Custom status effects
+                        "json/status_effects/cultist_mask.json",
                         // Clan Definition
                         "json/clan/clan.json",
                         // Required: Clan Map Banner Node definition and Card Pool
@@ -91,7 +93,15 @@ namespace Spire_Clan.Plugin
                         // Shop Upgrades (Enhancer)
                         "json/enhancers/basic_enhancer.json",
                         // Artifacts
-                        "json/relics/basic_artifact.json"
+                        "json/relics/basic_artifact.json",
+                        "json/relics/red_mask.json",
+                        "json/relics/gremlin_horn.json",
+                        "json/relics/blood_vial.json",
+                        "json/relics/gremlin_visage.json",
+                        "json/relics/razor_tooth.json",
+                        "json/relics/anchor.json",
+                        "json/relics/glass_eye.json",
+                        "json/relics/shuriken.json"
                     );
                 }
             );

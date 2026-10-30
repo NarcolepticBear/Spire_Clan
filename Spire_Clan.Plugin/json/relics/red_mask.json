@@ -1,0 +1,47 @@
+{
+  "$schema": "https://github.com/Monster-Train-2-Modding-Group/Trainworks-Reloaded/releases/latest/download/schema.json",
+  "relics": [
+    {
+      "id": "RedMask",
+      "type": "collectable",
+      "names": {
+        "english": "Red Mask"
+      },
+      "descriptions": {
+        "english": "Enemies gain [sap] 3 when they enter your train."
+      },
+      "lore_tooltips": [
+        {
+          "english": "A crimson mask that saps the strength of every enemy."
+        }
+      ],
+      "lore_style": "herzal",
+      "relic_effects": [ "@RedMaskSapEnemies" ],
+      "icon": "@BasicArtifactIcon",
+      "icon_small": "@BasicArtifactSmallIcon",
+      "extensions": [
+        {
+          "collectable": {
+            "class": "@ClassBasic",
+            "pools": [ "MegaRelicPool" ],
+            "rarity": "common"
+          }
+        }
+      ]
+    }
+  ],
+  "relic_effects": [
+    {
+      "id": "RedMaskSapEnemies",
+      "name": "RelicEffectAddStatusEffectOnSpawn",
+      "param_status_effects": [
+        {
+          "status": "debuff",
+          "count": 3
+        }
+      ],
+      "source_team": "heroes",
+      "param_int": -1
+    }
+  ]
+}
